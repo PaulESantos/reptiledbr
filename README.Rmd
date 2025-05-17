@@ -33,6 +33,7 @@ You can install the development version of `reptiledbr` from GitHub using:
 # install.packages("pak")
 pak::pak("PaulESantos/reptiledbr")
 ```
+<<<<<<< HEAD
 ```{r}
 library(reptiledbr)
 ```
@@ -48,6 +49,19 @@ The package uses data from The Reptile Database, an open and community-driven re
 
 - Original literature references
 
+=======
+
+## Data Source
+
+The package uses data from The Reptile Database, an open and community-driven resource curated by herpetologists and volunteers around the world. It focuses on taxonomic data including:
+
+- Scientific names and synonyms
+
+- Type specimens and distribution
+
+- Original literature references
+
+>>>>>>> b87b57f9107510ddc0817d56057164b3c984055e
 - The database was initiated by Peter Uetz in 1995 and is currently curated by a volunteer team. For more information, visit: www.reptile-database.org
 
 > Note: This package is not officially affiliated with The Reptile Database. It provides an independent R interface to facilitate access to public data.
