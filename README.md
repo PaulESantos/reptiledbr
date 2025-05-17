@@ -1,0 +1,119 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# reptiledbr
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/reptiledbr)](https://CRAN.R-project.org/package=reptiledbr)
+[![R-CMD-check](https://github.com/PaulESantos/reptiledbr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/reptiledbr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/PaulESantos/reptiledbr/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/reptiledbr)
+<!-- badges: end -->
+
+## Overview
+
+**`reptiledbr`** is an R package that provides programmatic access to
+data from [The Reptile Database](http://www.reptile-database.org), a
+comprehensive and curated source of taxonomic information on all living
+reptiles. This includes snakes, lizards, turtles, tuataras,
+amphisbaenians, and crocodiles—over 10,000 species and more than 2,800
+subspecies.
+
+The goal of `reptiledbr` is to facilitate access to reptile taxonomy,
+nomenclature, distribution, and associated scientific literature in a
+reproducible and efficient way for researchers, ecologists, educators,
+and biodiversity data users.
+
+## Installation
+
+You can install the development version of `reptiledbr` from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("PaulESantos/reptiledbr")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(reptiledbr)
+#> Welcome to reptiledbr (v0.0.1)
+#> This package provides tools to access and query data from the Reptile Database:
+#>   https://reptile-database.reptarium.cz/
+#> Type ?reptiledbr to get started or visit the documentation for examples and guidance.
+## basic example code
+```
+
+## Features
+
+- Query species by scientific name or higher taxonomy
+- Retrieve synonyms, type localities, and distributions
+- Access bibliographic references for species descriptions
+- Tools to explore phylogenetic classification (based on Zheng & Wiens,
+  2016)
+- Fully integrated with the R environment for analysis and visualization
+
+------------------------------------------------------------------------
+
+## Data Source
+
+The package uses data from The Reptile Database, an open and
+community-driven resource curated by herpetologists and volunteers
+around the world. It focuses on taxonomic data including:
+
+- Scientific names and synonyms
+
+- Type specimens and distribution
+
+- Original literature references
+
+## Data Source
+
+The package uses data from The Reptile Database, an open and
+community-driven resource curated by herpetologists and volunteers
+around the world. It focuses on taxonomic data including:
+
+- Scientific names and synonyms
+
+- Type specimens and distribution
+
+- Original literature references
+
+- The database was initiated by Peter Uetz in 1995 and is currently
+  curated by a volunteer team. For more information, visit:
+  www.reptile-database.org
+
+> Note: This package is not officially affiliated with The Reptile
+> Database. It provides an independent R interface to facilitate access
+> to public data.
+
+## Citing the Data
+
+Please cite the original Reptile Database if you use this package in
+published work:
+
+Uetz, P., Freed, P., & Hošek, J. (eds.) (2021). The Reptile Database.
+Retrieved from <http://www.reptile-database.org>
+
+## Contributing
+
+Contributions, bug reports, and feature requests are welcome! Please use
+the issue tracker to report problems or suggest improvements.
+
+## License
+
+This package is free and open source software, licensed under the MIT
+License. See the LICENSE file for more details.
+
+## Acknowledgments
+
+Special thanks to the editors and contributors of The Reptile Database
+for their dedication to herpetological taxonomy and for maintaining an
+open-access scientific resource for the global community.

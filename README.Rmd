@@ -1,4 +1,19 @@
-# reptiledbr 
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# reptiledbr
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -13,7 +28,24 @@
 
 The goal of `reptiledbr` is to facilitate access to reptile taxonomy, nomenclature, distribution, and associated scientific literature in a reproducible and efficient way for researchers, ecologists, educators, and biodiversity data users.
 
----
+
+## Installation
+
+You can install the development version of `reptiledbr` from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("PaulESantos/reptiledbr")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(reptiledbr)
+## basic example code
+```
 
 ## Features
 
@@ -24,20 +56,6 @@ The goal of `reptiledbr` is to facilitate access to reptile taxonomy, nomenclatu
 - Fully integrated with the R environment for analysis and visualization
 
 ---
-
-## Installation
-
-You can install the development version of `reptiledbr` from GitHub using:
-
-```r
-# install.packages("pak")
-pak::pak("PaulESantos/reptiledbr")
-```
-
-```{r}
-library(reptiledbr)
-```
-
 
 ## Data Source
 
@@ -80,6 +98,5 @@ This package is free and open source software, licensed under the MIT License. S
 ## Acknowledgments
 
 Special thanks to the editors and contributors of The Reptile Database for their dedication to herpetological taxonomy and for maintaining an open-access scientific resource for the global community.
-
 
 

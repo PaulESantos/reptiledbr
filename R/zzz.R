@@ -15,7 +15,7 @@ utils::globalVariables(c(
 .onAttach <- function(lib, pkg) {
   packageStartupMessage(
     paste0(
-      "Welcome to reptiledbr (v", utils::packageDescription("reptiledbr", fields = "Version"), ")\n",
+      "Welcome to reptiledbr (", utils::packageDescription("reptiledbr", fields = "Version"), ")\n",
       "This package provides tools to access and query data from the Reptile Database:\n",
       "  https://reptile-database.reptarium.cz/\n",
       "Type ?reptiledbr to get started or visit the documentation for examples and guidance."
