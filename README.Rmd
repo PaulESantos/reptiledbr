@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(tidyverse)
 ```
 
 # reptiledbr
@@ -73,19 +74,125 @@ The package uses data from The Reptile Database, an open and community-driven re
 
 - Original literature references
 
-## Data Source
-
-The package uses data from The Reptile Database, an open and community-driven resource curated by herpetologists and volunteers around the world. It focuses on taxonomic data including:
-
-- Scientific names and synonyms
-
-- Type specimens and distribution
-
-- Original literature references
-
 - The database was initiated by Peter Uetz in 1995 and is currently curated by a volunteer team. For more information, visit: www.reptile-database.org
 
 > Note: This package is not officially affiliated with The Reptile Database. It provides an independent R interface to facilitate access to public data.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Load required libraries
+library(viridis)  # For an accessible and attractive color palette
+library(hrbrthemes)  # For modern themes
+library(scales)  # For formatting labels
+
+# Create the tibble with the data
+species_data <- tribble(
+  ~Year, ~Amphisbaenia, ~Sauria, ~Serpentes, ~Testudines, ~Crocodylia, ~Rhynchocephalia, ~Total,
+  "Feb 2008", 168, 5079, 3149, 313, 23, 2, 8734,
+  "Jan 2011", 181, 5461, 3315, 317, 24, 2, 9300,
+  "Feb 2012", 181, 5634, 3378, 327, 25, 2, 9547,
+  "Feb 2013", 184, 5796, 3432, 328, 25, 1, 9766,
+  "Aug 2014", 188, 5987, 3496, 341, 25, 1, 10038,
+  "Aug 2015", 193, 6145, 3567, 341, 25, 1, 10272,
+  "Aug 2016", 196, 6263, 3619, 346, 25, 1, 10450,
+  "Oct 2017", 193, 6399, 3672, 350, 24, 1, 10639,
+  "Jul 2018", 196, 6512, 3709, 351, 24, 1, 10793,
+  "Aug 2019", 195, 6687, 3789, 353, 25, 1, 11050,
+  "Aug 2020", 201, 6905, 3848, 360, 26, 1, 11341,
+  "Nov 2021", 202, 7144, 3956, 360, 27, 1, 11690,
+  "Dec 2022", 201, 7310, 4038, 363, 27, 1, 11940,
+  "Oct 2023", 202, 7396, 4073, 361, 27, 1, 12060,
+  "Aug 2024", 203, 7724, 4145, 366, 27, 1, 12263,
+  "Jan 2025", 203, 7814, 4177, 367, 27, 1, 12386
+)
+
+# Transform data to long format for visualization
+species_long <- species_data %>% 
+  pivot_longer(cols = -Year, 
+               names_to = "Group",
+               values_to = "Species") %>% 
+  filter(Group != "Total") %>%
+  # Extract year for better labeling
+  mutate(
+    Year_num = as.numeric(substr(Year, nchar(Year)-3, nchar(Year))),
+    # Reorder groups in a more logical presentation
+    Group = factor(Group, 
+                   levels = c("Sauria", "Serpentes", "Testudines", 
+                              "Amphisbaenia", "Crocodylia", "Rhynchocephalia"))
+  )
+
+# Create a custom color palette and more descriptive names
+group_colors <- viridis_pal(option = "turbo")(6)
+group_labels <- c("Sauria (Lizards)", "Serpentes (Snakes)", "Testudines (Turtles)", 
+                 "Amphisbaenia (Worm Lizards)", "Crocodylia (Crocodilians)", 
+                 "Rhynchocephalia (Tuataras)")
+names(group_labels) <- levels(species_long$Group)
+
+```
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+p <- ggplot(species_long, 
+       aes(x = Year, y = Species, color = Group, group = Group)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.5) +
+  scale_color_manual(values = group_colors, labels = group_labels) +
+  labs(
+    title = "Evolution of Reptile Species (2008–2025)",
+    subtitle = "Data from The Reptile Database",
+    x = "",
+    y = "Number of Species",
+    color = "Taxonomic Group",
+    caption = "Source: The Reptile Database | Visualization: {reptiledbr}"
+  ) +
+  theme_ipsum_rc(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    strip.text = element_text(face = "bold", size = 11),
+    strip.background = element_rect(fill = "grey90", color = NA),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(color = "grey80", fill = NA),
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(size = 12, margin = margin(b = 20)),
+    plot.caption = element_text(size = 9, color = "grey40"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.margin = margin(t = 10, r = 10, b = 10, l = 10)
+  )
+
+# Create a separate plot for each group with appropriate scales
+p_facet <- p + 
+  facet_wrap(~Group, scales = "free_y", ncol = 2) +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 8)
+  )
+
+# Create a trend plot (only for the main groups)
+p_trend <- species_long %>%
+  filter(Group %in% c("Sauria", "Serpentes", "Testudines")) %>%
+  ggplot(aes(x = Year, y = Species, color = Group, group = Group)) +
+  geom_line(linewidth = 1.5) +
+  geom_point(size = 3) +
+  scale_color_manual(values = group_colors[1:3], labels = group_labels[1:3]) +
+  labs(
+    title = "Trends in Major Reptile Groups",
+    x = "",
+    y = "Number of Species",
+    color = "Taxonomic Group"
+  ) +
+  theme_ipsum_rc(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.minor = element_blank()
+  )
+
+# Display the plots
+print(p_facet)
+print(p_trend)
+```
+
 
 ## Citing the Data
 

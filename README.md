@@ -179,8 +179,8 @@ reptiledb |>
 #>  3 Anolis carolinensis Anolis carolinensis Alibardi, Lorenzo 2021. Immunolocali…
 #>  4 Anolis carolinensis Anolis carolinensis Allen, Morrow J. 1932. A survey of t…
 #>  5 Anolis carolinensis Anolis carolinensis Andersson, L.G. 1900. Catalogue of L…
-#>  6 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Mate Choice by F…
-#>  7 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Oviposition freq…
+#>  6 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Oviposition freq…
+#>  7 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Mate Choice by F…
 #>  8 Anolis carolinensis Anolis carolinensis Arnold, Debbie M. 1997. Geographic D…
 #>  9 Anolis carolinensis Anolis carolinensis Art, G.R. & D.L. Claussen 1982. The …
 #> 10 Anolis carolinensis Anolis carolinensis Ballinger, R.E. 1973. Experimental E…
@@ -210,18 +210,6 @@ around the world. It focuses on taxonomic data including:
 
 - Original literature references
 
-## Data Source
-
-The package uses data from The Reptile Database, an open and
-community-driven resource curated by herpetologists and volunteers
-around the world. It focuses on taxonomic data including:
-
-- Scientific names and synonyms
-
-- Type specimens and distribution
-
-- Original literature references
-
 - The database was initiated by Peter Uetz in 1995 and is currently
   curated by a volunteer team. For more information, visit:
   www.reptile-database.org
@@ -229,6 +217,8 @@ around the world. It focuses on taxonomic data including:
 > Note: This package is not officially affiliated with The Reptile
 > Database. It provides an independent R interface to facilitate access
 > to public data.
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /><img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
 
 ## Citing the Data
 
