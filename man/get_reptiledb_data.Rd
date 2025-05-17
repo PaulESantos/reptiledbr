@@ -2,7 +2,8 @@
 % Please edit documentation in R/get_reptilebd_data.R
 \name{get_reptiledb_data}
 \alias{get_reptiledb_data}
-\title{Access Reptile Database Taxonomic Information}
+\title{Access Reptile Database Taxonomic Information
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \source{
 Uetz, P., Freed, P., & Hosek, J. (eds.) (2021). The Reptile Database.
 Available at: \url{https://reptile-database.reptarium.cz}

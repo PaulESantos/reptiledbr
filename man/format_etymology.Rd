@@ -2,7 +2,9 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_etymology}
 \alias{format_etymology}
-\title{Format etymological data of reptiles}
+\title{Format etymological data of reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+Extracts and formats the etymological information associated with reptile species.}
 \usage{
 format_etymology(reptile_data)
 }
@@ -13,5 +15,7 @@ format_etymology(reptile_data)
 A tibble containing the formatted etymological details for each species.
 }
 \description{
+Format etymological data of reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 Extracts and formats the etymological information associated with reptile species.
 }

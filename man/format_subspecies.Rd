@@ -2,7 +2,8 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_subspecies}
 \alias{format_subspecies}
-\title{Format subspecies data for reptiles}
+\title{Format subspecies data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
 format_subspecies(reptile_data)
 }
@@ -14,4 +15,5 @@ A tibble with formatted subspecies by species.
 }
 \description{
 Format subspecies data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

@@ -15,5 +15,8 @@ format_all_attributes(reptile_data, quiet = FALSE)
 A list containing all formatted attributes.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\details{
 Applies formatting functions to all known attributes in the reptile dataset.
 }

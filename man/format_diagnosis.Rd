@@ -2,7 +2,8 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_diagnosis}
 \alias{format_diagnosis}
-\title{Format diagnostic information for reptiles}
+\title{Format diagnostic information for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
 format_diagnosis(reptile_data)
 }
@@ -14,4 +15,5 @@ A tibble with formatted diagnostic descriptions by species.
 }
 \description{
 Format diagnostic information for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

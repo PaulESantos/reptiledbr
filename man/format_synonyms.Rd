@@ -13,5 +13,5 @@ format_synonyms(reptile_data)
 A tibble with formatted synonym names by species.
 }
 \description{
-Format synonym data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

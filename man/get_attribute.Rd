@@ -15,6 +15,6 @@ get_attribute(reptile_data, attribute_name)
 A tibble with columns \code{input_name}, \code{genus}, \code{species}, and \code{attribute_value} containing the extracted values.
 }
 \description{
-Extract a specific attribute from reptile species data
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \keyword{internal}

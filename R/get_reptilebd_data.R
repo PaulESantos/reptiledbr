@@ -1,4 +1,5 @@
 #' @title Access Reptile Database Taxonomic Information
+#' `r lifecycle::badge('experimental')`
 #' @description
 #' Retrieves taxonomic information on living reptile species from
 #' [The Reptile Database](https://reptile-database.reptarium.cz/).

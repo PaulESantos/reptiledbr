@@ -1,5 +1,7 @@
 #' Extract a specific attribute from reptile species data
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @param attribute_name A string indicating the name of the attribute to extract (e.g., "Distribution", "Synonym").
 #' @return A tibble with columns `input_name`, `genus`, `species`, and `attribute_value` containing the extracted values.
@@ -21,6 +23,8 @@ get_attribute <- function(reptile_data, attribute_name) {
 
 # ---------------------------------------------------------------
 #' Format distribution data into a long table format
+#'
+#' `r lifecycle::badge('experimental')`
 #'
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with distribution data in long format.
@@ -58,6 +62,8 @@ format_distribution <- function(reptile_data) {
 
 #' Format synonym data for reptiles
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted synonym names by species.
 #' @export
@@ -91,7 +97,7 @@ format_synonyms <- function(reptile_data) {
 
 # ---------------------------------------------------------------
 #' Format higher-level taxonomic data for reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted higher taxonomic classification by species.
 #' @export
@@ -126,8 +132,8 @@ format_higher_taxa <- function(reptile_data) {
 }
 
 # ---------------------------------------------------------------
-##' Format subspecies data for reptiles
-#'
+#' Format subspecies data for reptiles
+#' `r lifecycle::badge('experimental')`
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted subspecies by species.
 #' @export
@@ -161,7 +167,7 @@ format_subspecies <- function(reptile_data) {
 
 # ---------------------------------------------------------------
 #' Format common names for reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted common names by species.
 #' @export
@@ -197,7 +203,7 @@ format_common_names <- function(reptile_data) {
 # ---------------------------------------------------------------
 
 #' Format reproductive data for reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted reproductive information by species.
 #' @export
@@ -231,7 +237,7 @@ format_reproduction <- function(reptile_data) {
 
 # ---------------------------------------------------------------
 #' Format nomenclatural type data for reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted type information by species.
 #' @export
@@ -265,7 +271,7 @@ format_types <- function(reptile_data) {
 # ---------------------------------------------------------------
 
 #' Format diagnostic information for reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' @param reptile_data A tibble returned by `get_reptile_species_data()`.
 #' @return A tibble with formatted diagnostic descriptions by species.
 #' @export
@@ -298,7 +304,7 @@ format_diagnosis <- function(reptile_data) {
 }
 # ---------------------------------------------------------------
 #' Format reptile comment data
-#'
+#' `r lifecycle::badge('experimental')`
 #' Extracts and formats general comments associated with reptile species.
 #'
 #' @param reptile_data A data frame obtained using the `get_reptile_species_data()` function.
@@ -334,7 +340,7 @@ format_comments <- function(reptile_data) {
 
 # ---------------------------------------------------------------
 #' Format etymological data of reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' Extracts and formats the etymological information associated with reptile species.
 #'
 #' @param reptile_data A data frame obtained using the `get_reptile_species_data()` function.
@@ -369,7 +375,7 @@ format_etymology <- function(reptile_data) {
 }
 # ---------------------------------------------------------------
 #' Format bibliographic reference data of reptiles
-#'
+#' `r lifecycle::badge('experimental')`
 #' Extracts and formats bibliographic references associated with reptile species.
 #'
 #' @param reptile_data A data frame obtained using the `get_reptile_species_data()` function.
@@ -407,6 +413,8 @@ format_references <- function(reptile_data) {
 # ---------------------------------------------------------------
 #' Format all available reptile attributes
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' Applies formatting functions to all known attributes in the reptile dataset.
 #'
 #' @param reptile_data A data frame obtained using the `get_reptile_species_data()` function.
@@ -440,6 +448,8 @@ format_all_attributes <- function(reptile_data, quiet = FALSE) {
 # ---------------------------------------------------------------
 
 #' Extract and optionally format a specific attribute
+#'
+#' `r lifecycle::badge('experimental')`
 #'
 #' Extracts and optionally formats structured information for a given attribute.
 #'
@@ -478,6 +488,8 @@ extract_attribute <- function(reptile_data, attribute_name, format_function = NU
 
 # ---------------------------------------------------------------
 #' Format selected reptile attributes
+#'
+#' `r lifecycle::badge('experimental')`
 #'
 #' Extracts and formats only the specified attributes from the reptile dataset.
 #'

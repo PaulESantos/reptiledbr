@@ -17,5 +17,8 @@ format_selected_attributes(reptile_data, attributes, quiet = FALSE)
 A list containing the selected formatted attributes.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\details{
 Extracts and formats only the specified attributes from the reptile dataset.
 }

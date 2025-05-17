@@ -13,5 +13,5 @@ format_distribution(reptile_data)
 A tibble with distribution data in long format.
 }
 \description{
-Format distribution data into a long table format
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

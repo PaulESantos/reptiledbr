@@ -26,7 +26,8 @@ Imports:
     tibble,
     tidyr,
     dplyr,
-    utils
+    utils,
+    lifecycle
 Suggests: 
     covr,
     mockery,

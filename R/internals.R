@@ -33,42 +33,8 @@
 #'   \item Ensuring names are unique by adding numeric suffixes
 #' }
 #'
-#' @examples
-#' # Create a test data.frame
-#' df <- data.frame(
-#'   "First Name" = c("John", "Maria"),
-#'   "Last Name" = c("Smith", "Lopez"),
-#'   "Age (years)" = c(25, 30),
-#'   "% Increase" = c(5.2, 3.8),
-#'   "Duplicate" = c(1, 2),
-#'   "Duplicate" = c(3, 4),
-#'   check.names = FALSE
-#' )
 #'
-#' # Snake case format (default)
-#' clean_names_rdbr(df)
-#' # Result: first_name, last_name, age_years, increase, duplicate, duplicate_1
-#'
-#' # Lower camel case format
-#' clean_names_rdbr(df, case = "lower_camel")
-#' # Result: firstName, lastName, ageYears, increase, duplicate, duplicate1
-#'
-#' # Upper camel case format
-#' clean_names_rdbr(df, case = "upper_camel")
-#' # Result: FirstName, LastName, AgeYears, Increase, Duplicate, Duplicate1
-#'
-#' # Screaming snake case format
-#' clean_names_rdbr(df, case = "screaming_snake")
-#' # Result: FIRST_NAME, LAST_NAME, AGE_YEARS, INCREASE, DUPLICATE, DUPLICATE_1
-#'
-#' # Without replacing special characters
-#' clean_names_rdbr(df, replace_special_chars = FALSE)
-#'
-#' # Without ensuring unique names
-#' clean_names_rdbr(df, unique_names = FALSE)
-#' # Note: this may result in duplicate names in the output
-#'
-#' @export
+#' @keywords internal
 clean_names_rdbr <- function(df,
                              case = c("snake", "lower_camel", "upper_camel", "screaming_snake"),
                              replace_special_chars = TRUE,

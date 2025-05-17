@@ -2,7 +2,8 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_reproduction}
 \alias{format_reproduction}
-\title{Format reproductive data for reptiles}
+\title{Format reproductive data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
 format_reproduction(reptile_data)
 }
@@ -14,4 +15,5 @@ A tibble with formatted reproductive information by species.
 }
 \description{
 Format reproductive data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

@@ -2,7 +2,9 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_comments}
 \alias{format_comments}
-\title{Format reptile comment data}
+\title{Format reptile comment data
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+Extracts and formats general comments associated with reptile species.}
 \usage{
 format_comments(reptile_data)
 }
@@ -13,5 +15,7 @@ format_comments(reptile_data)
 A tibble containing formatted comments for each species.
 }
 \description{
+Format reptile comment data
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 Extracts and formats general comments associated with reptile species.
 }

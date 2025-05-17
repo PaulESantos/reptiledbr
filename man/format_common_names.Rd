@@ -2,7 +2,8 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_common_names}
 \alias{format_common_names}
-\title{Format common names for reptiles}
+\title{Format common names for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
 format_common_names(reptile_data)
 }
@@ -14,4 +15,5 @@ A tibble with formatted common names by species.
 }
 \description{
 Format common names for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

@@ -2,7 +2,8 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_higher_taxa}
 \alias{format_higher_taxa}
-\title{Format higher-level taxonomic data for reptiles}
+\title{Format higher-level taxonomic data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
 format_higher_taxa(reptile_data)
 }
@@ -14,4 +15,5 @@ A tibble with formatted higher taxonomic classification by species.
 }
 \description{
 Format higher-level taxonomic data for reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }

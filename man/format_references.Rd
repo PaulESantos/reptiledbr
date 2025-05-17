@@ -2,7 +2,9 @@
 % Please edit documentation in R/accessory_functions.R
 \name{format_references}
 \alias{format_references}
-\title{Format bibliographic reference data of reptiles}
+\title{Format bibliographic reference data of reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+Extracts and formats bibliographic references associated with reptile species.}
 \usage{
 format_references(reptile_data)
 }
@@ -13,5 +15,7 @@ format_references(reptile_data)
 A tibble containing formatted references for each species.
 }
 \description{
+Format bibliographic reference data of reptiles
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 Extracts and formats bibliographic references associated with reptile species.
 }

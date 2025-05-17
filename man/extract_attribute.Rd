@@ -17,5 +17,8 @@ extract_attribute(reptile_data, attribute_name, format_function = NULL)
 A tibble with formatted information for the specified attribute.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\details{
 Extracts and optionally formats structured information for a given attribute.
 }
