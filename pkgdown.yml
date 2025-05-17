@@ -1,0 +1,10 @@
+pandoc: 3.1.11
+pkgdown: 2.1.2
+pkgdown_sha: ~
+articles:
+  format_all: format_all.html
+  introduction: introduction.html
+last_built: 2025-05-17T23:48Z
+urls:
+  reference: https://paulesantos.github.io/reptiledbr/reference
+  article: https://paulesantos.github.io/reptiledbr/articles
