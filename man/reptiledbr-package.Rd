@@ -12,6 +12,7 @@ Provides tools to search, access, and format taxonomic information from the Rept
 Useful links:
 \itemize{
   \item \url{https://github.com/PaulESantos/reptiledbr}
+  \item \url{https://paulesantos.github.io/reptiledbr/}
   \item Report bugs at \url{https://github.com/PaulESantos/reptiledbr/issues}
 }
 
