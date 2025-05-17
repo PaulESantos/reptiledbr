@@ -1,0 +1,36 @@
+Package: reptiledbr
+Title: Interface to the Reptile Database for Querying and Retrieving Taxonomic Data
+Version: 0.0.1
+Authors@R: c(
+    person(
+        given = "Paul Efren",
+        family = "Santos Andrade",
+        role = c("aut", "cre"),
+        email = "paulefrens@gmail.com",
+        comment = c(ORCID = "0000-0002-6635-0375")
+    ))
+Description: Provides tools to search, access, and format taxonomic information 
+    from the Reptile Database (<http://reptile-database.org>) directly within R. 
+    Users can retrieve species-level data, distribution, etymology, synonyms, 
+    common names, and other relevant information for reptiles. Designed for 
+    taxonomists, ecologists, and biodiversity researchers.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    xml2,
+    stringr,
+    purrr,
+    tibble,
+    tidyr,
+    dplyr,
+    utils
+Suggests: 
+    covr,
+    mockery,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 4.1.0)
