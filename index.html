@@ -61,8 +61,8 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p><strong><code>reptiledbr</code></strong> is an R package that provides programmatic access to data from <a href="http://www.reptile-database.org" class="external-link">The Reptile Database</a>, a comprehensive and curated source of taxonomic information on all living reptiles. This includes snakes, lizards, turtles, tuataras, amphisbaenians, and crocodiles—over 10,000 species and more than 2,800 subspecies.</p>
-<p>The goal of <code>reptiledbr</code> is to facilitate access to reptile taxonomy, nomenclature, distribution, and associated scientific literature in a reproducible and efficient way for researchers, ecologists, educators, and biodiversity data users.</p>
+<p><code>reptiledbr</code> is an R package that provides programmatic access to data from The Reptile Database, a comprehensive and curated source of taxonomic information on all living reptiles. This includes snakes, lizards, turtles, tuataras, amphisbaenians, and crocodiles—over 12,000 species and more than 2,800 subspecies.</p>
+<p>The goal of reptiledbr is to facilitate access to reptile taxonomy, nomenclature, distribution, and associated scientific literature in a reproducible and efficient way for researchers, ecologists, educators, and biodiversity data users.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -73,167 +73,15 @@
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"PaulESantos/reptiledbr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/reptiledbr" class="external-link">reptiledbr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Welcome to reptiledbr (v0.0.1)</span></span>
-<span><span class="co">#&gt; This package provides tools to access and query data from the Reptile Database:</span></span>
-<span><span class="co">#&gt;   https://reptile-database.reptarium.cz/</span></span>
-<span><span class="co">#&gt; Type ?reptiledbr to get started or visit the documentation for examples and guidance.</span></span>
-<span><span class="co">## basic example code</span></span>
-<span></span>
-<span></span>
-<span><span class="va">reptiledb</span> <span class="op">&lt;-</span> <span class="fu">reptiledbr</span><span class="fu">::</span><span class="fu"><a href="reference/get_reptiledb_data.html">get_reptiledb_data</a></span><span class="op">(</span><span class="st">"Anolis carolinensis"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Starting search for 1 species...</span></span>
-<span><span class="co">#&gt; Maximum wait time per request: 10 seconds</span></span>
-<span><span class="co">#&gt; ------------------------------------------------------------------------</span></span>
-<span><span class="co">#&gt; Processing: Anolis carolinensis</span></span>
-<span><span class="co">#&gt; SUCCESS: Data found for Anolis carolinensis</span></span>
-<span><span class="co">#&gt; ------------------------------------------------------------------------</span></span>
-<span><span class="co">#&gt; Search summary:</span></span>
-<span><span class="co">#&gt;  Species found with data: 1</span></span>
-<span><span class="co">#&gt;  Species not found: 0</span></span>
-<span><span class="co">#&gt;  Total errors: 0</span></span>
-<span><span class="co">#&gt; ------------------------------------------------------------------------</span></span>
-<span></span>
-<span><span class="va">reptiledb</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">reptiledbr</span><span class="fu">::</span><span class="fu"><a href="reference/format_all_attributes.html">format_all_attributes</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Starting to format all attributes...</span></span>
-<span><span class="co">#&gt; Attribute formatting successfully completed.</span></span>
-<span><span class="co">#&gt; $distribution</span></span>
-<span><span class="co">#&gt; # A tibble: 11 × 4</span></span>
-<span><span class="co">#&gt;    input_name          genus  species      distribution                         </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                </span></span>
-<span><span class="co">#&gt;  1 Anolis carolinensis Anolis carolinensis USA (E Texas, SE Oklahoma, S Arkansa…</span></span>
-<span><span class="co">#&gt;  2 Anolis carolinensis Anolis carolinensis Bahamas, Grand Cayman Islands (HR 33…</span></span>
-<span><span class="co">#&gt;  3 Anolis carolinensis Anolis carolinensis Introduced to Hawaii (fide MCKEOWN 1…</span></span>
-<span><span class="co">#&gt;  4 Anolis carolinensis Anolis carolinensis Introduced to Japan (Chichizima Is. …</span></span>
-<span><span class="co">#&gt;  5 Anolis carolinensis Anolis carolinensis Introduced to Micronesia and Guam (G…</span></span>
-<span><span class="co">#&gt;  6 Anolis carolinensis Anolis carolinensis May have been introduced to Tenerife…</span></span>
-<span><span class="co">#&gt;  7 Anolis carolinensis Anolis carolinensis Introduced to Northern Mariana Islan…</span></span>
-<span><span class="co">#&gt;  8 Anolis carolinensis Anolis carolinensis Introduced to Mexico (Nuevo León, Lu…</span></span>
-<span><span class="co">#&gt;  9 Anolis carolinensis Anolis carolinensis Introduced to California fide Hansen…</span></span>
-<span><span class="co">#&gt; 10 Anolis carolinensis Anolis carolinensis baccatus: Mexico; Type locality: Mex…</span></span>
-<span><span class="co">#&gt; 11 Anolis carolinensis Anolis carolinensis seminolus: USA (Florida); Type local…</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $synonyms</span></span>
-<span><span class="co">#&gt; # A tibble: 34 × 4</span></span>
-<span><span class="co">#&gt;    input_name          genus  species      synonym                              </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                </span></span>
-<span><span class="co">#&gt;  1 Anolis carolinensis Anolis carolinensis Anolius carolinensis VOIGT in CUVIER…</span></span>
-<span><span class="co">#&gt;  2 Anolis carolinensis Anolis carolinensis Lacerta principalis LINNAEUS 1758 (f…</span></span>
-<span><span class="co">#&gt;  3 Anolis carolinensis Anolis carolinensis Ameiua bullaris MEYER 1795: 29 (erro…</span></span>
-<span><span class="co">#&gt;  4 Anolis carolinensis Anolis carolinensis Anolis bullaris — DAUDIN 1802: 69 (p…</span></span>
-<span><span class="co">#&gt;  5 Anolis carolinensis Anolis carolinensis Agama bullaris — LINK 1807: 58       </span></span>
-<span><span class="co">#&gt;  6 Anolis carolinensis Anolis carolinensis Agama strumosa — LINK 1807: 59       </span></span>
-<span><span class="co">#&gt;  7 Anolis carolinensis Anolis carolinensis Anolis strumosa — HARLAN 1835: 143   </span></span>
-<span><span class="co">#&gt;  8 Anolis carolinensis Anolis carolinensis Anolis Carolinensis — DUMÉRIL &amp; BIBR…</span></span>
-<span><span class="co">#&gt;  9 Anolis carolinensis Anolis carolinensis Anolis podargicus RICHARDSON 1837: 2…</span></span>
-<span><span class="co">#&gt; 10 Anolis carolinensis Anolis carolinensis Dactyloa (Ctenocercus) carolinensis …</span></span>
-<span><span class="co">#&gt; # ℹ 24 more rows</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $higher_taxa</span></span>
-<span><span class="co">#&gt; # A tibble: 4 × 4</span></span>
-<span><span class="co">#&gt;   input_name          genus  species      taxon             </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;             </span></span>
-<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis Anolidae          </span></span>
-<span><span class="co">#&gt; 2 Anolis carolinensis Anolis carolinensis Iguania           </span></span>
-<span><span class="co">#&gt; 3 Anolis carolinensis Anolis carolinensis Sauria            </span></span>
-<span><span class="co">#&gt; 4 Anolis carolinensis Anolis carolinensis Squamata (lizards)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $subspecies</span></span>
-<span><span class="co">#&gt; # A tibble: 0 × 4</span></span>
-<span><span class="co">#&gt; # ℹ 4 variables: input_name &lt;chr&gt;, genus &lt;chr&gt;, species &lt;chr&gt;, subspecies &lt;chr&gt;</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $common_names</span></span>
-<span><span class="co">#&gt; # A tibble: 3 × 4</span></span>
-<span><span class="co">#&gt;   input_name          genus  species      common_name                           </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                 </span></span>
-<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis E: North American Green Anole, Green …</span></span>
-<span><span class="co">#&gt; 2 Anolis carolinensis Anolis carolinensis S: Anolis Verde                       </span></span>
-<span><span class="co">#&gt; 3 Anolis carolinensis Anolis carolinensis G: Rotkehlanolis                      </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $reproduction</span></span>
-<span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
-<span><span class="co">#&gt;   input_name          genus  species      reproduction_detail                   </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                 </span></span>
-<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis oviparous&lt;br&gt;&lt;br&gt;Hybridization: Anoli…</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $types</span></span>
-<span><span class="co">#&gt; # A tibble: 4 × 4</span></span>
-<span><span class="co">#&gt;   input_name          genus  species      type_detail                           </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                 </span></span>
-<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis Neotype: NCSM 93545 (North Carolina M…</span></span>
-<span><span class="co">#&gt; 2 Anolis carolinensis Anolis carolinensis Holotype: MVZ (originally as UCMZ) 53…</span></span>
-<span><span class="co">#&gt; 3 Anolis carolinensis Anolis carolinensis Holotype: MNHN 1126 [baccatus]        </span></span>
-<span><span class="co">#&gt; 4 Anolis carolinensis Anolis carolinensis Synypes: MCZ 5955, 5956 [principalis] </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $diagnosis</span></span>
-<span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
-<span><span class="co">#&gt;   input_name          genus  species      diagnosis_detail                      </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                 </span></span>
-<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis Diagnosis (genus; Anolis s.s.): Suppo…</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $comments</span></span>
-<span><span class="co">#&gt; # A tibble: 17 × 4</span></span>
-<span><span class="co">#&gt;    input_name          genus  species      comment_detail                       </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                </span></span>
-<span><span class="co">#&gt;  1 Anolis carolinensis Anolis carolinensis Synonymy: partly after VANCE 1991. B…</span></span>
-<span><span class="co">#&gt;  2 Anolis carolinensis Anolis carolinensis Nomenclature: the family that contai…</span></span>
-<span><span class="co">#&gt;  3 Anolis carolinensis Anolis carolinensis Subspecies: VANCE 1991 described Ano…</span></span>
-<span><span class="co">#&gt;  4 Anolis carolinensis Anolis carolinensis Similar species: A. porcatus, A. sma…</span></span>
-<span><span class="co">#&gt;  5 Anolis carolinensis Anolis carolinensis Genetics: In July 2005, the scientif…</span></span>
-<span><span class="co">#&gt;  6 Anolis carolinensis Anolis carolinensis Evolution: On small islands in Flori…</span></span>
-<span><span class="co">#&gt;  7 Anolis carolinensis Anolis carolinensis Ecology: The presence of invasive A.…</span></span>
-<span><span class="co">#&gt;  8 Anolis carolinensis Anolis carolinensis Sexual dimorphism: the carolinensis …</span></span>
-<span><span class="co">#&gt;  9 Anolis carolinensis Anolis carolinensis Distribution: See maps in Vance 1991…</span></span>
-<span><span class="co">#&gt; 10 Anolis carolinensis Anolis carolinensis In Japan, the green anole Anolis car…</span></span>
-<span><span class="co">#&gt; 11 Anolis carolinensis Anolis carolinensis Species group: Anolis carolinensis s…</span></span>
-<span><span class="co">#&gt; 12 Anolis carolinensis Anolis carolinensis Type species: Anolis bullaris DAUDIN…</span></span>
-<span><span class="co">#&gt; 13 Anolis carolinensis Anolis carolinensis Key: for a key to (mainland) species…</span></span>
-<span><span class="co">#&gt; 14 Anolis carolinensis Anolis carolinensis Phylogenetics (genus). For a compreh…</span></span>
-<span><span class="co">#&gt; 15 Anolis carolinensis Anolis carolinensis Karyotype: 2n=36, XY (males) or XX (…</span></span>
-<span><span class="co">#&gt; 16 Anolis carolinensis Anolis carolinensis Thermobiology: Salazar et al. 2019 c…</span></span>
-<span><span class="co">#&gt; 17 Anolis carolinensis Anolis carolinensis Reference images: see Uetz et al. 20…</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $etymology</span></span>
-<span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
-<span><span class="co">#&gt;   input_name          genus  species      etymology_detail                      </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                 </span></span>
-<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis Named after the Carolinas where the s…</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $references</span></span>
-<span><span class="co">#&gt; # A tibble: 251 × 4</span></span>
-<span><span class="co">#&gt;    input_name          genus  species      reference                            </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                </span></span>
-<span><span class="co">#&gt;  1 Anolis carolinensis Anolis carolinensis Alföldi J, Di Palma F, Grabherr M, W…</span></span>
-<span><span class="co">#&gt;  2 Anolis carolinensis Anolis carolinensis Alibardi, L. 2021. Limb regeneration…</span></span>
-<span><span class="co">#&gt;  3 Anolis carolinensis Anolis carolinensis Alibardi, Lorenzo 2021. Immunolocali…</span></span>
-<span><span class="co">#&gt;  4 Anolis carolinensis Anolis carolinensis Allen, Morrow J. 1932. A survey of t…</span></span>
-<span><span class="co">#&gt;  5 Anolis carolinensis Anolis carolinensis Andersson, L.G. 1900. Catalogue of L…</span></span>
-<span><span class="co">#&gt;  6 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Oviposition freq…</span></span>
-<span><span class="co">#&gt;  7 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Mate Choice by F…</span></span>
-<span><span class="co">#&gt;  8 Anolis carolinensis Anolis carolinensis Arnold, Debbie M. 1997. Geographic D…</span></span>
-<span><span class="co">#&gt;  9 Anolis carolinensis Anolis carolinensis Art, G.R. &amp; D.L. Claussen 1982. The …</span></span>
-<span><span class="co">#&gt; 10 Anolis carolinensis Anolis carolinensis Ballinger, R.E. 1973. Experimental E…</span></span>
-<span><span class="co">#&gt; # ℹ 241 more rows</span></span></code></pre></div>
-</div>
-<div class="section level2">
 <h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
 </h2>
 <ul>
-<li>Query species by scientific name or higher taxonomy</li>
-<li>Retrieve synonyms, type localities, and distributions</li>
-<li>Access bibliographic references for species descriptions</li>
-<li>Tools to explore phylogenetic classification (based on Zheng &amp; Wiens,
-<ol start="2016" style="list-style-type: decimal"><li>
-</li></ol>
-</li>
-<li>Fully integrated with the R environment for analysis and visualization</li>
+<li><p>Query species by scientific name</p></li>
+<li><p>Retrieve synonyms, type localities, and distributions</p></li>
+<li><p>Access bibliographic references for species descriptions</p></li>
+<li><p>Work online (direct server queries) or offline (local database)</p></li>
+<li><p>Fully integrated with the R environment for analysis</p></li>
 </ul>
-<hr>
 </div>
 <div class="section level2">
 <h2 id="data-source">Data Source<a class="anchor" aria-label="anchor" href="#data-source"></a>
@@ -249,6 +97,130 @@
 <p>Note: This package is not officially affiliated with The Reptile Database. It provides an independent R interface to facilitate access to public data.</p>
 </blockquote>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"><img src="reference/figures/README-unnamed-chunk-3-2.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="section level3">
+<h3 id="online-access">Online Access<a class="anchor" aria-label="anchor" href="#online-access"></a>
+</h3>
+<p>Query data directly from The Reptile Database server:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/reptiledbr" class="external-link">reptiledbr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Cargando paquete requerido: fuzzyjoin</span></span>
+<span><span class="co">#&gt; Welcome to reptiledbr (0.0.1)</span></span>
+<span><span class="co">#&gt; This package provides tools to access and query data from the Reptile Database:</span></span>
+<span><span class="co">#&gt;   https://reptile-database.reptarium.cz/</span></span>
+<span><span class="co">#&gt; Type ?reptiledbr to get started or visit the documentation for examples and guidance.</span></span>
+<span><span class="co"># Get detailed information for a specific species</span></span>
+<span><span class="va">reptiledb</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_reptiledb_data.html">get_reptiledb_data</a></span><span class="op">(</span><span class="st">"Anolis carolinensis"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Starting search for 1 species...</span></span>
+<span><span class="co">#&gt; Maximum wait time per request: 10 seconds</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Processing: Anolis carolinensis</span></span>
+<span><span class="co">#&gt; SUCCESS: Data found for Anolis carolinensis</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Search summary:</span></span>
+<span><span class="co">#&gt;  Species found with data: 1</span></span>
+<span><span class="co">#&gt;  Species not found: 0</span></span>
+<span><span class="co">#&gt;  Total errors: 0</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------------------</span></span>
+<span><span class="co"># Format the results in a user-friendly way</span></span>
+<span><span class="va">all_attributes</span> <span class="op">&lt;-</span> <span class="va">reptiledb</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">reptiledbr</span><span class="fu">::</span><span class="fu"><a href="reference/format_all_attributes.html">format_all_attributes</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Starting to format all attributes...</span></span>
+<span><span class="co">#&gt; Attribute formatting successfully completed.</span></span>
+<span></span>
+<span><span class="va">all_attributes</span><span class="op">$</span><span class="va">distribution</span></span>
+<span><span class="co">#&gt; # A tibble: 11 × 4</span></span>
+<span><span class="co">#&gt;    input_name          genus  species      distribution                         </span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                </span></span>
+<span><span class="co">#&gt;  1 Anolis carolinensis Anolis carolinensis USA (E Texas, SE Oklahoma, S Arkansa…</span></span>
+<span><span class="co">#&gt;  2 Anolis carolinensis Anolis carolinensis Bahamas, Grand Cayman Islands (HR 33…</span></span>
+<span><span class="co">#&gt;  3 Anolis carolinensis Anolis carolinensis Introduced to Hawaii (fide MCKEOWN 1…</span></span>
+<span><span class="co">#&gt;  4 Anolis carolinensis Anolis carolinensis Introduced to Japan (Chichizima Is. …</span></span>
+<span><span class="co">#&gt;  5 Anolis carolinensis Anolis carolinensis Introduced to Micronesia and Guam (G…</span></span>
+<span><span class="co">#&gt;  6 Anolis carolinensis Anolis carolinensis May have been introduced to Tenerife…</span></span>
+<span><span class="co">#&gt;  7 Anolis carolinensis Anolis carolinensis Introduced to Northern Mariana Islan…</span></span>
+<span><span class="co">#&gt;  8 Anolis carolinensis Anolis carolinensis Introduced to Mexico (Nuevo León, Lu…</span></span>
+<span><span class="co">#&gt;  9 Anolis carolinensis Anolis carolinensis Introduced to California fide Hansen…</span></span>
+<span><span class="co">#&gt; 10 Anolis carolinensis Anolis carolinensis baccatus: Mexico; Type locality: Mex…</span></span>
+<span><span class="co">#&gt; 11 Anolis carolinensis Anolis carolinensis seminolus: USA (Florida); Type local…</span></span>
+<span><span class="va">all_attributes</span><span class="op">$</span><span class="va">common_names</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 4</span></span>
+<span><span class="co">#&gt;   input_name          genus  species      common_name                           </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;               &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;                                 </span></span>
+<span><span class="co">#&gt; 1 Anolis carolinensis Anolis carolinensis E: North American Green Anole, Green …</span></span>
+<span><span class="co">#&gt; 2 Anolis carolinensis Anolis carolinensis S: Anolis Verde                       </span></span>
+<span><span class="co">#&gt; 3 Anolis carolinensis Anolis carolinensis G: Rotkehlanolis</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="localoffline-access">Local/Offline Access<a class="anchor" aria-label="anchor" href="#localoffline-access"></a>
+</h3>
+<p>Perform taxonomic verification without internet connection:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/reptiledbr" class="external-link">reptiledbr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define a vector of species names to verify</span></span>
+<span><span class="va">species_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Lachesis muta"</span>,</span>
+<span>  <span class="st">"Python bivittatus"</span>,</span>
+<span>  <span class="st">"Crotalus atrox"</span>,</span>
+<span>  <span class="st">"Lachesis mutta"</span>  <span class="co"># Intentional typo</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Exact search (strict matching)</span></span>
+<span><span class="fu"><a href="reference/reptiledbr_exact.html">reptiledbr_exact</a></span><span class="op">(</span><span class="va">species_names</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 10</span></span>
+<span><span class="co">#&gt;      id input_name found species_match order family genus epithet author message</span></span>
+<span><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;      &lt;lgl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt; 1     1 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…</span></span>
+<span><span class="co">#&gt; 2     2 Python bi… TRUE  Python bivit… Serp… Pytho… Pyth… bivitt… Kuhl … Specie…</span></span>
+<span><span class="co">#&gt; 3     3 Crotalus … TRUE  Crotalus atr… Serp… Viper… Crot… atrox   Baird… No sub…</span></span>
+<span><span class="co">#&gt; 4     4 Lachesis … FALSE &lt;NA&gt;          &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;   Specie…</span></span>
+<span></span>
+<span><span class="co"># Partial/fuzzy search (finds matches despite typos)</span></span>
+<span><span class="fu"><a href="reference/reptiledbr_partial.html">reptiledbr_partial</a></span><span class="op">(</span><span class="va">species_names</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 11</span></span>
+<span><span class="co">#&gt;      id input_name        found species_match  order family genus epithet author</span></span>
+<span><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;             &lt;lgl&gt; &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; </span></span>
+<span><span class="co">#&gt; 1     1 Lachesis muta     TRUE  Lachesis muta  Serp… Viper… Lach… muta    Linna…</span></span>
+<span><span class="co">#&gt; 2     2 Python bivittatus TRUE  Python bivitt… Serp… Pytho… Pyth… bivitt… Kuhl …</span></span>
+<span><span class="co">#&gt; 3     3 Crotalus atrox    TRUE  Crotalus atrox Serp… Viper… Crot… atrox   Baird…</span></span>
+<span><span class="co">#&gt; 4     4 Lachesis mutta    TRUE  Lachesis muta  Serp… Viper… Lach… muta    Linna…</span></span>
+<span><span class="co">#&gt; # ℹ 2 more variables: fuzzy_match &lt;lgl&gt;, message &lt;chr&gt;</span></span>
+<span></span>
+<span><span class="co"># Flexible search with additional options</span></span>
+<span><span class="fu"><a href="reference/search_reptiledbr.html">search_reptiledbr</a></span><span class="op">(</span><span class="va">species_names</span>, use_fuzzy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 12</span></span>
+<span><span class="co">#&gt;      id input_name found species_match order family genus epithet author message</span></span>
+<span><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;      &lt;lgl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt; 1     1 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…</span></span>
+<span><span class="co">#&gt; 2     2 Python bi… TRUE  Python bivit… Serp… Pytho… Pyth… bivitt… Kuhl … Specie…</span></span>
+<span><span class="co">#&gt; 3     3 Crotalus … TRUE  Crotalus atr… Serp… Viper… Crot… atrox   Baird… No sub…</span></span>
+<span><span class="co">#&gt; 4     4 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…</span></span>
+<span><span class="co">#&gt; # ℹ 2 more variables: match_type &lt;chr&gt;, fuzzy_match &lt;lgl&gt;</span></span>
+<span></span>
+<span><span class="co"># List subspecies for specific species</span></span>
+<span><span class="fu"><a href="reference/search_reptiledbr.html">search_reptiledbr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Anolis barahonae"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/list_subspecies_reptiledbr.html">list_subspecies_reptiledbr</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 3</span></span>
+<span><span class="co">#&gt;   species          subspecies_name               author                </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;                         &lt;chr&gt;                 </span></span>
+<span><span class="co">#&gt; 1 Anolis barahonae Anolis barahonae barahonae    Williams 1962         </span></span>
+<span><span class="co">#&gt; 2 Anolis barahonae Anolis barahonae albocellatus Schwartz 1974         </span></span>
+<span><span class="co">#&gt; 3 Anolis barahonae Anolis barahonae ininquinatus Cullom &amp; Schwartz 1980</span></span>
+<span><span class="co">#&gt; 4 Anolis barahonae Anolis barahonae mulitus      Cullom &amp; Schwartz 1980</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="when-to-use-each-approach">When to use each approach<a class="anchor" aria-label="anchor" href="#when-to-use-each-approach"></a>
+</h3>
+<ul>
+<li><p>Online access: For retrieving the most up-to-date and complete information about specific taxa</p></li>
+<li><p>Offline access: For efficiently verifying large taxonomic datasets, working without internet connection, or reducing server load</p></li>
+</ul>
+</div>
 </div>
 <div class="section level2">
 <h2 id="citing-the-data">Citing the Data<a class="anchor" aria-label="anchor" href="#citing-the-data"></a>
