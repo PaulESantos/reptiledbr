@@ -5,6 +5,7 @@
 <url><loc>https://paulesantos.github.io/reptiledbr/articles/format_all.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/articles/index.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/articles/introduction.html</loc></url>
+<url><loc>https://paulesantos.github.io/reptiledbr/articles/local_search.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/authors.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/index.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/reference/clean_names_rdbr.html</loc></url>
@@ -25,6 +26,11 @@
 <url><loc>https://paulesantos.github.io/reptiledbr/reference/get_attribute.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/reference/get_reptiledb_data.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/reference/index.html</loc></url>
+<url><loc>https://paulesantos.github.io/reptiledbr/reference/list_subspecies_reptiledbr.html</loc></url>
+<url><loc>https://paulesantos.github.io/reptiledbr/reference/reptiledb_012025.html</loc></url>
 <url><loc>https://paulesantos.github.io/reptiledbr/reference/reptiledbr-package.html</loc></url>
+<url><loc>https://paulesantos.github.io/reptiledbr/reference/reptiledbr_exact.html</loc></url>
+<url><loc>https://paulesantos.github.io/reptiledbr/reference/reptiledbr_partial.html</loc></url>
+<url><loc>https://paulesantos.github.io/reptiledbr/reference/search_reptiledbr.html</loc></url>
 </urlset>
 
