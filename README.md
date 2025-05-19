@@ -16,14 +16,13 @@ coverage](https://codecov.io/gh/PaulESantos/reptiledbr/graph/badge.svg)](https:/
 
 ## Overview
 
-**`reptiledbr`** is an R package that provides programmatic access to
-data from [The Reptile Database](http://www.reptile-database.org), a
-comprehensive and curated source of taxonomic information on all living
-reptiles. This includes snakes, lizards, turtles, tuataras,
-amphisbaenians, and crocodiles—over 10,000 species and more than 2,800
-subspecies.
+`reptiledbr` is an R package that provides programmatic access to data
+from The Reptile Database, a comprehensive and curated source of
+taxonomic information on all living reptiles. This includes snakes,
+lizards, turtles, tuataras, amphisbaenians, and crocodiles—over 12,000
+species and more than 2,800 subspecies.
 
-The goal of `reptiledbr` is to facilitate access to reptile taxonomy,
+The goal of reptiledbr is to facilitate access to reptile taxonomy,
 nomenclature, distribution, and associated scientific literature in a
 reproducible and efficient way for researchers, ecologists, educators,
 and biodiversity data users.
@@ -38,165 +37,17 @@ You can install the development version of `reptiledbr` from
 pak::pak("PaulESantos/reptiledbr")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(reptiledbr)
-#> Welcome to reptiledbr (v0.0.1)
-#> This package provides tools to access and query data from the Reptile Database:
-#>   https://reptile-database.reptarium.cz/
-#> Type ?reptiledbr to get started or visit the documentation for examples and guidance.
-## basic example code
-
-
-reptiledb <- reptiledbr::get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
-#> Starting search for 1 species...
-#> Maximum wait time per request: 10 seconds
-#> ------------------------------------------------------------------------
-#> Processing: Anolis carolinensis
-#> SUCCESS: Data found for Anolis carolinensis
-#> ------------------------------------------------------------------------
-#> Search summary:
-#>  Species found with data: 1
-#>  Species not found: 0
-#>  Total errors: 0
-#> ------------------------------------------------------------------------
-
-reptiledb |> 
-  reptiledbr::format_all_attributes()
-#> Starting to format all attributes...
-#> Attribute formatting successfully completed.
-#> $distribution
-#> # A tibble: 11 × 4
-#>    input_name          genus  species      distribution                         
-#>    <chr>               <chr>  <chr>        <chr>                                
-#>  1 Anolis carolinensis Anolis carolinensis USA (E Texas, SE Oklahoma, S Arkansa…
-#>  2 Anolis carolinensis Anolis carolinensis Bahamas, Grand Cayman Islands (HR 33…
-#>  3 Anolis carolinensis Anolis carolinensis Introduced to Hawaii (fide MCKEOWN 1…
-#>  4 Anolis carolinensis Anolis carolinensis Introduced to Japan (Chichizima Is. …
-#>  5 Anolis carolinensis Anolis carolinensis Introduced to Micronesia and Guam (G…
-#>  6 Anolis carolinensis Anolis carolinensis May have been introduced to Tenerife…
-#>  7 Anolis carolinensis Anolis carolinensis Introduced to Northern Mariana Islan…
-#>  8 Anolis carolinensis Anolis carolinensis Introduced to Mexico (Nuevo León, Lu…
-#>  9 Anolis carolinensis Anolis carolinensis Introduced to California fide Hansen…
-#> 10 Anolis carolinensis Anolis carolinensis baccatus: Mexico; Type locality: Mex…
-#> 11 Anolis carolinensis Anolis carolinensis seminolus: USA (Florida); Type local…
-#> 
-#> $synonyms
-#> # A tibble: 34 × 4
-#>    input_name          genus  species      synonym                              
-#>    <chr>               <chr>  <chr>        <chr>                                
-#>  1 Anolis carolinensis Anolis carolinensis Anolius carolinensis VOIGT in CUVIER…
-#>  2 Anolis carolinensis Anolis carolinensis Lacerta principalis LINNAEUS 1758 (f…
-#>  3 Anolis carolinensis Anolis carolinensis Ameiua bullaris MEYER 1795: 29 (erro…
-#>  4 Anolis carolinensis Anolis carolinensis Anolis bullaris — DAUDIN 1802: 69 (p…
-#>  5 Anolis carolinensis Anolis carolinensis Agama bullaris — LINK 1807: 58       
-#>  6 Anolis carolinensis Anolis carolinensis Agama strumosa — LINK 1807: 59       
-#>  7 Anolis carolinensis Anolis carolinensis Anolis strumosa — HARLAN 1835: 143   
-#>  8 Anolis carolinensis Anolis carolinensis Anolis Carolinensis — DUMÉRIL & BIBR…
-#>  9 Anolis carolinensis Anolis carolinensis Anolis podargicus RICHARDSON 1837: 2…
-#> 10 Anolis carolinensis Anolis carolinensis Dactyloa (Ctenocercus) carolinensis …
-#> # ℹ 24 more rows
-#> 
-#> $higher_taxa
-#> # A tibble: 4 × 4
-#>   input_name          genus  species      taxon             
-#>   <chr>               <chr>  <chr>        <chr>             
-#> 1 Anolis carolinensis Anolis carolinensis Anolidae          
-#> 2 Anolis carolinensis Anolis carolinensis Iguania           
-#> 3 Anolis carolinensis Anolis carolinensis Sauria            
-#> 4 Anolis carolinensis Anolis carolinensis Squamata (lizards)
-#> 
-#> $subspecies
-#> # A tibble: 0 × 4
-#> # ℹ 4 variables: input_name <chr>, genus <chr>, species <chr>, subspecies <chr>
-#> 
-#> $common_names
-#> # A tibble: 3 × 4
-#>   input_name          genus  species      common_name                           
-#>   <chr>               <chr>  <chr>        <chr>                                 
-#> 1 Anolis carolinensis Anolis carolinensis E: North American Green Anole, Green …
-#> 2 Anolis carolinensis Anolis carolinensis S: Anolis Verde                       
-#> 3 Anolis carolinensis Anolis carolinensis G: Rotkehlanolis                      
-#> 
-#> $reproduction
-#> # A tibble: 1 × 4
-#>   input_name          genus  species      reproduction_detail                   
-#>   <chr>               <chr>  <chr>        <chr>                                 
-#> 1 Anolis carolinensis Anolis carolinensis oviparous<br><br>Hybridization: Anoli…
-#> 
-#> $types
-#> # A tibble: 4 × 4
-#>   input_name          genus  species      type_detail                           
-#>   <chr>               <chr>  <chr>        <chr>                                 
-#> 1 Anolis carolinensis Anolis carolinensis Neotype: NCSM 93545 (North Carolina M…
-#> 2 Anolis carolinensis Anolis carolinensis Holotype: MVZ (originally as UCMZ) 53…
-#> 3 Anolis carolinensis Anolis carolinensis Holotype: MNHN 1126 [baccatus]        
-#> 4 Anolis carolinensis Anolis carolinensis Synypes: MCZ 5955, 5956 [principalis] 
-#> 
-#> $diagnosis
-#> # A tibble: 1 × 4
-#>   input_name          genus  species      diagnosis_detail                      
-#>   <chr>               <chr>  <chr>        <chr>                                 
-#> 1 Anolis carolinensis Anolis carolinensis Diagnosis (genus; Anolis s.s.): Suppo…
-#> 
-#> $comments
-#> # A tibble: 17 × 4
-#>    input_name          genus  species      comment_detail                       
-#>    <chr>               <chr>  <chr>        <chr>                                
-#>  1 Anolis carolinensis Anolis carolinensis Synonymy: partly after VANCE 1991. B…
-#>  2 Anolis carolinensis Anolis carolinensis Nomenclature: the family that contai…
-#>  3 Anolis carolinensis Anolis carolinensis Subspecies: VANCE 1991 described Ano…
-#>  4 Anolis carolinensis Anolis carolinensis Similar species: A. porcatus, A. sma…
-#>  5 Anolis carolinensis Anolis carolinensis Genetics: In July 2005, the scientif…
-#>  6 Anolis carolinensis Anolis carolinensis Evolution: On small islands in Flori…
-#>  7 Anolis carolinensis Anolis carolinensis Ecology: The presence of invasive A.…
-#>  8 Anolis carolinensis Anolis carolinensis Sexual dimorphism: the carolinensis …
-#>  9 Anolis carolinensis Anolis carolinensis Distribution: See maps in Vance 1991…
-#> 10 Anolis carolinensis Anolis carolinensis In Japan, the green anole Anolis car…
-#> 11 Anolis carolinensis Anolis carolinensis Species group: Anolis carolinensis s…
-#> 12 Anolis carolinensis Anolis carolinensis Type species: Anolis bullaris DAUDIN…
-#> 13 Anolis carolinensis Anolis carolinensis Key: for a key to (mainland) species…
-#> 14 Anolis carolinensis Anolis carolinensis Phylogenetics (genus). For a compreh…
-#> 15 Anolis carolinensis Anolis carolinensis Karyotype: 2n=36, XY (males) or XX (…
-#> 16 Anolis carolinensis Anolis carolinensis Thermobiology: Salazar et al. 2019 c…
-#> 17 Anolis carolinensis Anolis carolinensis Reference images: see Uetz et al. 20…
-#> 
-#> $etymology
-#> # A tibble: 1 × 4
-#>   input_name          genus  species      etymology_detail                      
-#>   <chr>               <chr>  <chr>        <chr>                                 
-#> 1 Anolis carolinensis Anolis carolinensis Named after the Carolinas where the s…
-#> 
-#> $references
-#> # A tibble: 251 × 4
-#>    input_name          genus  species      reference                            
-#>    <chr>               <chr>  <chr>        <chr>                                
-#>  1 Anolis carolinensis Anolis carolinensis Alföldi J, Di Palma F, Grabherr M, W…
-#>  2 Anolis carolinensis Anolis carolinensis Alibardi, L. 2021. Limb regeneration…
-#>  3 Anolis carolinensis Anolis carolinensis Alibardi, Lorenzo 2021. Immunolocali…
-#>  4 Anolis carolinensis Anolis carolinensis Allen, Morrow J. 1932. A survey of t…
-#>  5 Anolis carolinensis Anolis carolinensis Andersson, L.G. 1900. Catalogue of L…
-#>  6 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Oviposition freq…
-#>  7 Anolis carolinensis Anolis carolinensis Andrews, R.M. 1985. Mate Choice by F…
-#>  8 Anolis carolinensis Anolis carolinensis Arnold, Debbie M. 1997. Geographic D…
-#>  9 Anolis carolinensis Anolis carolinensis Art, G.R. & D.L. Claussen 1982. The …
-#> 10 Anolis carolinensis Anolis carolinensis Ballinger, R.E. 1973. Experimental E…
-#> # ℹ 241 more rows
-```
-
 ## Features
 
-- Query species by scientific name or higher taxonomy
-- Retrieve synonyms, type localities, and distributions
-- Access bibliographic references for species descriptions
-- Tools to explore phylogenetic classification (based on Zheng & Wiens,
-  2016)
-- Fully integrated with the R environment for analysis and visualization
+- Query species by scientific name
 
-------------------------------------------------------------------------
+- Retrieve synonyms, type localities, and distributions
+
+- Access bibliographic references for species descriptions
+
+- Work online (direct server queries) or offline (local database)
+
+- Fully integrated with the R environment for analysis
 
 ## Data Source
 
@@ -219,6 +70,130 @@ around the world. It focuses on taxonomic data including:
 > to public data.
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /><img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
+
+## Usage
+
+### Online Access
+
+Query data directly from The Reptile Database server:
+
+``` r
+library(reptiledbr)
+#> Cargando paquete requerido: fuzzyjoin
+#> Welcome to reptiledbr (0.0.1)
+#> This package provides tools to access and query data from the Reptile Database:
+#>   https://reptile-database.reptarium.cz/
+#> Type ?reptiledbr to get started or visit the documentation for examples and guidance.
+# Get detailed information for a specific species
+reptiledb <- get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
+#> Starting search for 1 species...
+#> Maximum wait time per request: 10 seconds
+#> ------------------------------------------------------------------------
+#> Processing: Anolis carolinensis
+#> SUCCESS: Data found for Anolis carolinensis
+#> ------------------------------------------------------------------------
+#> Search summary:
+#>  Species found with data: 1
+#>  Species not found: 0
+#>  Total errors: 0
+#> ------------------------------------------------------------------------
+# Format the results in a user-friendly way
+all_attributes <- reptiledb |> 
+  reptiledbr::format_all_attributes()
+#> Starting to format all attributes...
+#> Attribute formatting successfully completed.
+
+all_attributes$distribution
+#> # A tibble: 11 × 4
+#>    input_name          genus  species      distribution                         
+#>    <chr>               <chr>  <chr>        <chr>                                
+#>  1 Anolis carolinensis Anolis carolinensis USA (E Texas, SE Oklahoma, S Arkansa…
+#>  2 Anolis carolinensis Anolis carolinensis Bahamas, Grand Cayman Islands (HR 33…
+#>  3 Anolis carolinensis Anolis carolinensis Introduced to Hawaii (fide MCKEOWN 1…
+#>  4 Anolis carolinensis Anolis carolinensis Introduced to Japan (Chichizima Is. …
+#>  5 Anolis carolinensis Anolis carolinensis Introduced to Micronesia and Guam (G…
+#>  6 Anolis carolinensis Anolis carolinensis May have been introduced to Tenerife…
+#>  7 Anolis carolinensis Anolis carolinensis Introduced to Northern Mariana Islan…
+#>  8 Anolis carolinensis Anolis carolinensis Introduced to Mexico (Nuevo León, Lu…
+#>  9 Anolis carolinensis Anolis carolinensis Introduced to California fide Hansen…
+#> 10 Anolis carolinensis Anolis carolinensis baccatus: Mexico; Type locality: Mex…
+#> 11 Anolis carolinensis Anolis carolinensis seminolus: USA (Florida); Type local…
+all_attributes$common_names
+#> # A tibble: 3 × 4
+#>   input_name          genus  species      common_name                           
+#>   <chr>               <chr>  <chr>        <chr>                                 
+#> 1 Anolis carolinensis Anolis carolinensis E: North American Green Anole, Green …
+#> 2 Anolis carolinensis Anolis carolinensis S: Anolis Verde                       
+#> 3 Anolis carolinensis Anolis carolinensis G: Rotkehlanolis
+```
+
+### Local/Offline Access
+
+Perform taxonomic verification without internet connection:
+
+``` r
+
+library(reptiledbr)
+
+# Define a vector of species names to verify
+species_names <- c(
+  "Lachesis muta",
+  "Python bivittatus",
+  "Crotalus atrox",
+  "Lachesis mutta"  # Intentional typo
+)
+
+# Exact search (strict matching)
+reptiledbr_exact(species_names)
+#> # A tibble: 4 × 10
+#>      id input_name found species_match order family genus epithet author message
+#>   <int> <chr>      <lgl> <chr>         <chr> <chr>  <chr> <chr>   <chr>  <chr>  
+#> 1     1 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…
+#> 2     2 Python bi… TRUE  Python bivit… Serp… Pytho… Pyth… bivitt… Kuhl … Specie…
+#> 3     3 Crotalus … TRUE  Crotalus atr… Serp… Viper… Crot… atrox   Baird… No sub…
+#> 4     4 Lachesis … FALSE <NA>          <NA>  <NA>   <NA>  <NA>    <NA>   Specie…
+
+# Partial/fuzzy search (finds matches despite typos)
+reptiledbr_partial(species_names)
+#> # A tibble: 4 × 11
+#>      id input_name        found species_match  order family genus epithet author
+#>   <int> <chr>             <lgl> <chr>          <chr> <chr>  <chr> <chr>   <chr> 
+#> 1     1 Lachesis muta     TRUE  Lachesis muta  Serp… Viper… Lach… muta    Linna…
+#> 2     2 Python bivittatus TRUE  Python bivitt… Serp… Pytho… Pyth… bivitt… Kuhl …
+#> 3     3 Crotalus atrox    TRUE  Crotalus atrox Serp… Viper… Crot… atrox   Baird…
+#> 4     4 Lachesis mutta    TRUE  Lachesis muta  Serp… Viper… Lach… muta    Linna…
+#> # ℹ 2 more variables: fuzzy_match <lgl>, message <chr>
+
+# Flexible search with additional options
+search_reptiledbr(species_names, use_fuzzy = TRUE)
+#> # A tibble: 4 × 12
+#>      id input_name found species_match order family genus epithet author message
+#>   <int> <chr>      <lgl> <chr>         <chr> <chr>  <chr> <chr>   <chr>  <chr>  
+#> 1     1 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…
+#> 2     2 Python bi… TRUE  Python bivit… Serp… Pytho… Pyth… bivitt… Kuhl … Specie…
+#> 3     3 Crotalus … TRUE  Crotalus atr… Serp… Viper… Crot… atrox   Baird… No sub…
+#> 4     4 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…
+#> # ℹ 2 more variables: match_type <chr>, fuzzy_match <lgl>
+
+# List subspecies for specific species
+search_reptiledbr(c("Anolis barahonae")) |> 
+  list_subspecies_reptiledbr()
+#> # A tibble: 4 × 3
+#>   species          subspecies_name               author                
+#>   <chr>            <chr>                         <chr>                 
+#> 1 Anolis barahonae Anolis barahonae barahonae    Williams 1962         
+#> 2 Anolis barahonae Anolis barahonae albocellatus Schwartz 1974         
+#> 3 Anolis barahonae Anolis barahonae ininquinatus Cullom & Schwartz 1980
+#> 4 Anolis barahonae Anolis barahonae mulitus      Cullom & Schwartz 1980
+```
+
+### When to use each approach
+
+- Online access: For retrieving the most up-to-date and complete
+  information about specific taxa
+
+- Offline access: For efficiently verifying large taxonomic datasets,
+  working without internet connection, or reducing server load
 
 ## Citing the Data
 

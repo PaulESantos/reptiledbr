@@ -25,9 +25,9 @@ library(tidyverse)
 
 ## Overview
 
-**`reptiledbr`** is an R package that provides programmatic access to data from [The Reptile Database](http://www.reptile-database.org), a comprehensive and curated source of taxonomic information on all living reptiles. This includes snakes, lizards, turtles, tuataras, amphisbaenians, and crocodiles—over 10,000 species and more than 2,800 subspecies.
+`reptiledbr` is an R package that provides programmatic access to data from The Reptile Database, a comprehensive and curated source of taxonomic information on all living reptiles. This includes snakes, lizards, turtles, tuataras, amphisbaenians, and crocodiles—over 12,000 species and more than 2,800 subspecies.
 
-The goal of `reptiledbr` is to facilitate access to reptile taxonomy, nomenclature, distribution, and associated scientific literature in a reproducible and efficient way for researchers, ecologists, educators, and biodiversity data users.
+The goal of reptiledbr is to facilitate access to reptile taxonomy, nomenclature, distribution, and associated scientific literature in a reproducible and efficient way for researchers, ecologists, educators, and biodiversity data users.
 
 
 ## Installation
@@ -39,30 +39,18 @@ You can install the development version of `reptiledbr` from [GitHub](https://gi
 pak::pak("PaulESantos/reptiledbr")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(reptiledbr)
-## basic example code
-
-
-reptiledb <- reptiledbr::get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
-
-reptiledb |> 
-  reptiledbr::format_all_attributes()
-```
-
 ## Features
 
-- Query species by scientific name or higher taxonomy
-- Retrieve synonyms, type localities, and distributions
-- Access bibliographic references for species descriptions
-- Tools to explore phylogenetic classification (based on Zheng & Wiens, 2016)
-- Fully integrated with the R environment for analysis and visualization
+- Query species by scientific name
 
----
+- Retrieve synonyms, type localities, and distributions
+
+- Access bibliographic references for species descriptions
+
+- Work online (direct server queries) or offline (local database)
+
+- Fully integrated with the R environment for analysis
+
 
 ## Data Source
 
@@ -193,6 +181,57 @@ print(p_facet)
 print(p_trend)
 ```
 
+## Usage
+
+### Online Access
+
+Query data directly from The Reptile Database server:
+```{r}
+library(reptiledbr)
+# Get detailed information for a specific species
+reptiledb <- get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
+# Format the results in a user-friendly way
+all_attributes <- reptiledb |> 
+  reptiledbr::format_all_attributes()
+
+all_attributes$distribution
+all_attributes$common_names
+```
+
+### Local/Offline Access
+
+Perform taxonomic verification without internet connection:
+```{r}
+
+library(reptiledbr)
+
+# Define a vector of species names to verify
+species_names <- c(
+  "Lachesis muta",
+  "Python bivittatus",
+  "Crotalus atrox",
+  "Lachesis mutta"  # Intentional typo
+)
+
+# Exact search (strict matching)
+reptiledbr_exact(species_names)
+
+# Partial/fuzzy search (finds matches despite typos)
+reptiledbr_partial(species_names)
+
+# Flexible search with additional options
+search_reptiledbr(species_names, use_fuzzy = TRUE)
+
+# List subspecies for specific species
+search_reptiledbr(c("Anolis barahonae")) |> 
+  list_subspecies_reptiledbr()
+```
+
+### When to use each approach
+
+- Online access: For retrieving the most up-to-date and complete information about specific taxa
+
+- Offline access: For efficiently verifying large taxonomic datasets, working without internet connection, or reducing server load
 
 ## Citing the Data
 
