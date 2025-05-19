@@ -36,7 +36,8 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: 
-    R (>= 4.1.0)
+    R (>= 4.1.0), 
+    fuzzyjoin
 URL: https://github.com/PaulESantos/reptiledbr, https://paulesantos.github.io/reptiledbr/
 BugReports: https://github.com/PaulESantos/reptiledbr/issues
 VignetteBuilder: knitr
