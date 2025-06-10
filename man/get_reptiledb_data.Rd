@@ -52,6 +52,7 @@ Note: The database does not support species identification by traits,
 but users can search by geographical distribution and higher taxonomic groups.
 }
 \examples{
+
 get_reptiledb_data("Anolis carolinensis",
                            quiet = TRUE)
 

@@ -186,4 +186,4 @@ reptile_data <- get_reptiledb_data(species_list)
 
 `reptiledbr` provides an easy and structured way to access reptile species information from [The Reptile Database](http://www.reptile-database.org/). The package handles many common edge cases and provides specialized functions to extract and format specific types of information. This makes it a valuable tool for herpetologists, ecologists, and other researchers working with reptile data.
 
-For more information about the package, including advanced usage and complete function documentation, please refer to the package's [documentation](https://github.com/username/reptiledbr).
+For more information about the package, including advanced usage and complete function documentation, please refer to the package's [documentation](https://github.com/PaulESantos/reptiledbr).

@@ -14,7 +14,9 @@ knitr::opts_chunk$set(
 library(tidyverse)
 ```
 
-# reptiledbr
+
+# reptiledbr <a href='https://github.com/PaulESantos/reptiledbr'><img src='man/figures/reptiledbr_logo-01.png' align="right" height="250" width="220" /></a>
+
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)

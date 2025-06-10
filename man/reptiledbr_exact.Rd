@@ -25,5 +25,7 @@ This function searches for exact matches of scientific species names and indicat
 whether each matched species has associated subspecies in the dataset.
 }
 \examples{
+
 reptiledbr_exact(c("Ablepharus alaicus", "Anolis limon"))
+
 }

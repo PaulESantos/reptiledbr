@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# reptiledbr
+# reptiledbr <a href='https://github.com/PaulESantos/reptiledbr'><img src='man/figures/reptiledbr_logo-01.png' align="right" height="250" width="220" /></a>
 
 <!-- badges: start -->
 

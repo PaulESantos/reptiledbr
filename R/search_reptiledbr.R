@@ -18,7 +18,9 @@
 #' @export
 #'
 #' @examples
+#'
 #' reptiledbr_exact(c("Ablepharus alaicus", "Anolis limon"))
+#'
 reptiledbr_exact <- function(species_names) {
   # Asegurarse de que species_names sea un vector de caracteres
   species_names <- as.character(species_names)
@@ -100,7 +102,9 @@ reptiledbr_exact <- function(species_names) {
 #' @export
 #'
 #' @examples
+#'
 #' reptiledbr_partial(c("Ablepharus alaicuss", "Anolis limom"))
+#'
 reptiledbr_partial <- function(species_names,
                                max_dist = 2) {
   if (length(species_names) == 0) {
@@ -211,7 +215,9 @@ reptiledbr_partial <- function(species_names,
 #' @export
 #'
 #' @examples
+#'
 #' search_reptiledbr(c("Ablepharus alaicus", "Anolis limom"))
+#'
 search_reptiledbr <- function(species_names, max_dist = 2, use_fuzzy = TRUE) {
   # Asegurarse de que species_names sea un vector de caracteres
   species_names <- as.character(species_names)
@@ -524,11 +530,14 @@ search_reptiledbr <- function(species_names, max_dist = 2, use_fuzzy = TRUE) {
 #'
 #'
 #' @examples
-#' \dontrun{
-#' subspecies_names <- c("Lachesis muta", "Anilius scytale", "Anolis bahorucoensis")
+#'
+#' subspecies_names <- c("Lachesis muta",
+#'  "Anilius scytale",
+#'  "Anolis bahorucoensis")
+#'
 #' search_reptiledbr(subspecies_names, use_fuzzy = FALSE) |>
 #'   list_subspecies_reptiledbr()
-#' }
+#'
 #'
 #' @export
 list_subspecies_reptiledbr <- function(df) {

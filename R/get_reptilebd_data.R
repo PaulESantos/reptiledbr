@@ -41,6 +41,7 @@
 #' Zheng, Y., & Wiens, J. J. (2016). Combining phylogenomics and fossils in higher-level squamate reptile phylogeny. *BMC Evolutionary Biology*, 16, 1-20.
 #'
 #' @examples
+#'
 #' get_reptiledb_data("Anolis carolinensis",
 #'                            quiet = TRUE)
 #'
