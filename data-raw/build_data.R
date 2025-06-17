@@ -1,14 +1,33 @@
 ## code to prepare `build_data` dataset goes here
-reptile_checklist <- readxl::read_excel("D:/rreptiledb/reptile_checklist.xlsx") |>
+reptile_checklist <- readxl::read_excel("reptile_checklist_2025_05.xlsx") |>
   janitor::clean_names()
 # Improved code for processing reptile checklist with species_name_year extraction
+reptile_checklist |>
+  dplyr::select(subspecies) |>
+  dplyr::slice(5) |>
+  as.vector()
+
+reptile_checklist
 
 
 reptiledb_012025 <-
   reptile_checklist |>
-  # Separar entradas multilínea con manejo seguro
-  tidyr::separate_rows(subspecies, sep = "\\r\\n") |>
+  purrr::set_names(c("type_species",
+                     "species",
+                     "author",
+                     "subspecies",
+                     "order",
+                     "family",
+                     "change",
+                     "rdb_sp_id")) |>
 
+  # Separar entradas multilínea con manejo seguro
+    tidyr::separate_rows(subspecies, sep = "\v") |>
+    # Eliminar caracteres de control (excepto \v que ya fue usado)
+    dplyr::mutate(
+      subspecies = stringr::str_replace_all(subspecies, "[[:cntrl:]]", ""),
+      subspecies = stringr::str_squish(subspecies)
+    ) |>
   # Flag para cambios de nomenclatura (nombres entre paréntesis)
   dplyr::mutate(
     # Asegurar que subspecies es character para evitar problemas
@@ -25,7 +44,7 @@ reptiledb_012025 <-
   # Extraer componentes con una expresión regular más flexible
   tidyr::extract(
     subspecies,
-    into = c("genus", "ephitetho", "subspecies_name",
+    into = c("genus", "epithet", "subspecies_name",
              "subspecie_author_info"),
     # Captura: género (1ª palabra), especie (2ª palabra), subespecie (3ª palabra) y toda la info del autor
     regex = "([A-Z][a-z]+)\\s+([a-z\\-]+)\\s+([a-z\\-]+)\\s+(.+)",
@@ -39,14 +58,29 @@ reptiledb_012025 <-
     genus = ifelse(is.na(genus),
                    stringr::word(subspecies, 1, 1),
                    genus),
-    ephitetho = ifelse(is.na(ephitetho),
+    epithet = ifelse(is.na(epithet),
                        stringr::word(subspecies, 2, 2),
-                       ephitetho),
+                     epithet),
     subspecies_name = ifelse(is.na(subspecies_name),
                              stringr::word(subspecies, 3, 3),
                              subspecies_name)
   ) |>
-
+  dplyr::mutate(genus = ifelse(nchar(genus)<1,
+                               NA_character_,
+                               genus))  |>
+  dplyr::mutate(subspecies = ifelse(nchar(subspecies)<1,
+                               NA_character_,
+                               subspecies))  |>
+  # Limpiar texto de species
+  dplyr::mutate(
+      # Usar stringr::word() como fallback para casos no capturados por regex
+      genus = ifelse(is.na(genus),
+                     stringr::word(species, 1, 1),
+                     genus),
+      epithet = ifelse(is.na(epithet),
+                       stringr::word(species, 2, 2),
+                       epithet),
+  ) |>
   #  Combinar los resultados de casos especiales y normales
   dplyr::mutate(
     # Extraer el año usando una expresión regular más flexible
@@ -79,9 +113,9 @@ reptiledb_012025 <-
     genus = ifelse(is.na(genus),
                    stringr::word(species, 1, 1),
                    genus),
-    ephitetho = ifelse(is.na(ephitetho),
+    epithet = ifelse(is.na(epithet),
                        stringr::word(species, 2, 2),
-                       ephitetho),
+                     epithet),
   ) |>
   dplyr::mutate(author = stringr::str_remove_all(author,
                                                  "\\(|\\)")) |>
@@ -110,14 +144,13 @@ reptiledb_012025 <-
     species_author = stringr::str_trim(species_author) |>
       stringr::str_to_title()
   ) |>
-  # Seleccionar y reorganizar columnas para mejor legibilidad
+# Seleccionar y reorganizar columnas para mejor legibilidad
   dplyr::select(
     order,
     family,
     genus,
-    ephitetho,
+    epithet,
     species,
-    author,
     species_author,
     species_name_year,
     subspecies_name,
@@ -126,13 +159,20 @@ reptiledb_012025 <-
     subspecies_year,
     dplyr::everything(),
     nomenclature_change_species,
-    nomenclature_change
+    nomenclature_change,
+    -c(author, type_species,
+       nomenclature_change_species,
+       nomenclature_change,
+       subspecies)
+  ) |>
+  dplyr::mutate(
+    dplyr::across(
+      .cols = c(order, family, genus, epithet,
+                species_author, change),
+      .fns = as.factor
+    )
   )
 
-#reptiledb_012025
-
-#reptile_checklist_f |>
-#  writexl::write_xlsx("reptile_checklist_clean_012025.xlsx")
 
 usethis::use_data(reptiledb_012025,
                   overwrite = TRUE,

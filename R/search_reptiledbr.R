@@ -40,17 +40,17 @@ reptiledbr_exact <- function(species_names) {
     dplyr::filter(species %in% species_names) |>
     dplyr::distinct() |>
     dplyr::group_by(species) |>
-    dplyr::summarize(has_subspecies = any(!is.na(subspecies)),
+    dplyr::summarize(has_subspecies = any(!is.na(subspecies_name)),
                      .groups = "drop")
   # Unir con la información base y generar la salida
   df_out <- df |>
     dplyr::mutate(author = paste0(species_author, " ", species_name_year)) |>
-    dplyr::mutate(species_match = paste0(genus, " ", ephitetho)) |>
+    dplyr::mutate(species_match = paste0(genus, " ", epithet)) |>
     dplyr::select(species_match,
                   order,
                   family,
                   genus,
-                  epithet = ephitetho,
+                  epithet,
                   species,
                   author) |>
     dplyr::distinct() |>
@@ -147,7 +147,7 @@ reptiledbr_partial <- function(species_names,
     distance_col = "dist") |>
     dplyr::distinct() |>
     dplyr::group_by(species) |>
-    dplyr::summarize(has_subspecies = any(!is.na(subspecies)),
+    dplyr::summarize(has_subspecies = any(!is.na(subspecies_name)),
                      .groups = "drop")
 
   # Crear una tabla con todos los nombres de entrada y marcar si fueron encontrados
@@ -169,7 +169,7 @@ reptiledbr_partial <- function(species_names,
     dplyr::rename(species_match = species) |>
     dplyr::select(
       id, input_name, species_match, order, family, genus,
-      epithet = ephitetho, author, fuzzy_match, has_subspecies
+      epithet, author, fuzzy_match, has_subspecies
     )
 
   # Unir el resultado con la tabla de entrada para incluir todos los términos de búsqueda
@@ -561,7 +561,7 @@ list_subspecies_reptiledbr <- function(df) {
     dplyr::mutate(
       subspecies_name = paste0(
         genus, " ",
-        ephitetho, " ",
+        epithet, " ",
         subspecies_name
       ),
       author = paste0(subspecies_name_author, " ",

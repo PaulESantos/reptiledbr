@@ -53,6 +53,10 @@
 #' @export
 get_reptiledb_data <- function(species_names, timeout = 10, quiet = FALSE) {
 
+  # Save current options and ensure they are restored on function exit
+  old_options <- options()
+  on.exit(options(old_options))
+
   # Input validation
   if (!is.character(species_names) || length(species_names) == 0) {
     stop("You must provide at least one species name as a character vector.")

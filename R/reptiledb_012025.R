@@ -4,22 +4,20 @@
 #' containing taxonomic and nomenclatural information for reptile species and their subspecies.
 #' This tibble includes detailed columns related to authorship, type species, and taxonomic changes.
 #'
-#' @format A tibble with 14,474 rows and 18 columns:
+#' @format A tibble with 14,474 rows and 16 columns:
 #' \describe{
 #'   \item{order}{Taxonomic order of the reptile (e.g., \code{"Sauria"}).}
 #'   \item{family}{Taxonomic family (e.g., \code{"Scincidae"}).}
 #'   \item{genus}{Genus name.}
-#'   \item{ephitetho}{Species epithet (second part of the species name).}
+#'   \item{epithet}{Species epithet (second part of the species name).}
 #'   \item{species}{Full species name (genus + epithet).}
-#'   \item{author}{Primary author(s) of the species name.}
-#'   \item{species_author}{Author(s) of the species and year of description.}
+#'   \item{species_author}{Primary author(s) of the species name.}
 #'   \item{species_name_year}{Year the species was described.}
 #'   \item{subspecies_name}{Epithet of the subspecies (if any).}
 #'   \item{subspecie_author_info}{Full author citation of the subspecies.}
 #'   \item{subspecies_name_author}{Author(s) of the subspecies name.}
 #'   \item{subspecies_year}{Year the subspecies was described.}
 #'   \item{type_species}{Name of the type species, if available.}
-#'   \item{subspecies}{Full subspecies name (genus + species + subspecies).}
 #'   \item{change}{Text description of any taxonomic or nomenclatural change.}
 #'   \item{rdb_sp_id}{Unique identifier assigned by The Reptile Database.}
 #'   \item{nomenclature_change}{Logical flag indicating if a nomenclatural change has occurred (\code{TRUE} / \code{FALSE}).}

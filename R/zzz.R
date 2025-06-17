@@ -9,13 +9,16 @@ utils::globalVariables(c(
   "data", "diagnosis_detail", "x1", "x2", "author", "ephitetho", "epithet",
   "family", "fuzzy_match", "species_author", "species_match",
   "species_name_year", "has_subspecies",  "id", "original_order", "query",
-  "subspecies_name", "subspecies_name_author", "subspecies_year"
+  "subspecies_name", "subspecies_name_author", "subspecies_year",
+  "change", "download.file", "rdb_sp_id", "subspecie_author_info"
 ))
 
 # ---------------------------------------------------------------
 .pkgenv <- new.env(parent = emptyenv())
 
-.onAttach <- function(lib, pkg) {
+#' @keywords internal
+.onAttach <- function(libname, pkgname) {
+  # Display welcome message
   packageStartupMessage(
     paste0(
       "Welcome to reptiledbr (", utils::packageDescription("reptiledbr", fields = "Version"), ")\n",
@@ -24,4 +27,14 @@ utils::globalVariables(c(
       "Type ?reptiledbr to get started or visit the documentation for examples and guidance."
     )
   )
+
+  # Initialize the package
+  initialize_reptile_package(auto_download = FALSE, verbose = TRUE)
+}
+
+#' @keywords internal
+.onLoad <- function(libname, pkgname) {
+  # This function runs when the package is loaded
+  # Can be used for silent initialization
+  invisible()
 }
