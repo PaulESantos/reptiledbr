@@ -20,12 +20,6 @@ This tibble includes detailed columns related to authorship, type species, and t
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/format_all.html">Reptile Data Formatting Tutorial</a></li>
-    <li><a class="dropdown-item" href="../articles/introduction.html">Introduction to reptiledbr: Accessing The Reptile Database in R</a></li>
-    <li><a class="dropdown-item" href="../articles/local_search.html">Local Taxonomic Searches with reptiledbr</a></li>
-  </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/PaulESantos/reptiledbr/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
@@ -55,7 +49,7 @@ This tibble includes detailed columns related to authorship, type species, and t
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p>A tibble with 14,474 rows and 18 columns:</p><dl><dt>order</dt>
+    <p>A tibble with 14,474 rows and 16 columns:</p><dl><dt>order</dt>
 <dd><p>Taxonomic order of the reptile (e.g., <code>"Sauria"</code>).</p></dd>
 
 <dt>family</dt>
@@ -64,17 +58,14 @@ This tibble includes detailed columns related to authorship, type species, and t
 <dt>genus</dt>
 <dd><p>Genus name.</p></dd>
 
-<dt>ephitetho</dt>
+<dt>epithet</dt>
 <dd><p>Species epithet (second part of the species name).</p></dd>
 
 <dt>species</dt>
 <dd><p>Full species name (genus + epithet).</p></dd>
 
-<dt>author</dt>
-<dd><p>Primary author(s) of the species name.</p></dd>
-
 <dt>species_author</dt>
-<dd><p>Author(s) of the species and year of description.</p></dd>
+<dd><p>Primary author(s) of the species name.</p></dd>
 
 <dt>species_name_year</dt>
 <dd><p>Year the species was described.</p></dd>
@@ -93,9 +84,6 @@ This tibble includes detailed columns related to authorship, type species, and t
 
 <dt>type_species</dt>
 <dd><p>Name of the type species, if available.</p></dd>
-
-<dt>subspecies</dt>
-<dd><p>Full subspecies name (genus + species + subspecies).</p></dd>
 
 <dt>change</dt>
 <dd><p>Text description of any taxonomic or nomenclatural change.</p></dd>
