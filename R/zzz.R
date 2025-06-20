@@ -10,31 +10,53 @@ utils::globalVariables(c(
   "family", "fuzzy_match", "species_author", "species_match",
   "species_name_year", "has_subspecies",  "id", "original_order", "query",
   "subspecies_name", "subspecies_name_author", "subspecies_year",
-  "change", "download.file", "rdb_sp_id", "subspecie_author_info"
+  "change", "download.file", "rdb_sp_id", "subspecie_author_info",
+  "clean_namesedbr"
 ))
 
 # ---------------------------------------------------------------
+# Environment for package-level variables
 .pkgenv <- new.env(parent = emptyenv())
 
 #' @keywords internal
 .onAttach <- function(libname, pkgname) {
   # Display welcome message
   packageStartupMessage(
-    paste0(
-      "Welcome to reptiledbr (", utils::packageDescription("reptiledbr", fields = "Version"), ")\n",
-      "This package provides tools to access and query data from the Reptile Database:\n",
-      "  https://reptile-database.reptarium.cz/\n",
+    sprintf(
+      "Welcome to reptiledbr (%s)\n%s\n%s\n%s",
+      utils::packageDescription("reptiledbr", fields = "Version"),
+      "This package provides tools to access and query data from the Reptile Database:",
+      "  https://reptile-database.reptarium.cz/",
       "Type ?reptiledbr to get started or visit the documentation for examples and guidance."
     )
   )
 
-  # Initialize the package
-  initialize_reptile_package(auto_download = FALSE, verbose = TRUE)
+  # Check if reptiledb.data is available
+  if (!requireNamespace("reptiledb.data", quietly = TRUE)) {
+    packageStartupMessage(
+      paste0(
+        "\nNOTE: Some functions require the 'reptiledb.data' package.\n",
+        "Install it with: pak::pak('PaulESantos/reptiledb.data')\n",
+        "Functions affected: search_reptiledbr(), list_subspecies_reptiledbr()"
+      )
+    )
+  }
 }
 
 #' @keywords internal
 .onLoad <- function(libname, pkgname) {
-  # This function runs when the package is loaded
-  # Can be used for silent initialization
+  # Silent initialization when the package is loaded
   invisible()
+}
+
+#' Check if data package is required and available
+#' @keywords internal
+check_data_required <- function() {
+  if (!requireNamespace("reptiledb.data", quietly = TRUE)) {
+    stop(
+      "This function requires the 'reptiledb.data' package.\n",
+      "Install it with: pak::pak('PaulESantos/reptiledb.data')",
+      call. = FALSE
+    )
+  }
 }
