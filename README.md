@@ -85,7 +85,7 @@ library(reptiledbr)
 #>   https://reptile-database.reptarium.cz/
 #> Type ?reptiledbr to get started or visit the documentation for examples and guidance.
 # Get detailed information for a specific species
-reptiledb <- get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
+reptiledb <- reptiledbr::get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
 #> Starting search for 1 species...
 #> Maximum wait time per request: 10 seconds
 #> ------------------------------------------------------------------------
@@ -144,20 +144,20 @@ species_names <- c(
 )
 
 # Exact search (strict matching)
-reptiledbr_exact(species_names)
+reptiledbr::reptiledbr_exact(species_names)
 #> # A tibble: 4 × 10
 #>      id input_name found species_match order family genus epithet author message
-#>   <int> <chr>      <lgl> <chr>         <chr> <chr>  <chr> <chr>   <chr>  <chr>  
+#>   <int> <chr>      <lgl> <chr>         <fct> <fct>  <fct> <fct>   <chr>  <chr>  
 #> 1     1 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…
 #> 2     2 Python bi… TRUE  Python bivit… Serp… Pytho… Pyth… bivitt… Kuhl … Specie…
 #> 3     3 Crotalus … TRUE  Crotalus atr… Serp… Viper… Crot… atrox   Baird… No sub…
 #> 4     4 Lachesis … FALSE <NA>          <NA>  <NA>   <NA>  <NA>    <NA>   Specie…
 
 # Partial/fuzzy search (finds matches despite typos)
-reptiledbr_partial(species_names)
+reptiledbr::reptiledbr_partial(species_names)
 #> # A tibble: 4 × 11
 #>      id input_name        found species_match  order family genus epithet author
-#>   <int> <chr>             <lgl> <chr>          <chr> <chr>  <chr> <chr>   <chr> 
+#>   <int> <chr>             <lgl> <chr>          <fct> <fct>  <fct> <fct>   <chr> 
 #> 1     1 Lachesis muta     TRUE  Lachesis muta  Serp… Viper… Lach… muta    Linna…
 #> 2     2 Python bivittatus TRUE  Python bivitt… Serp… Pytho… Pyth… bivitt… Kuhl …
 #> 3     3 Crotalus atrox    TRUE  Crotalus atrox Serp… Viper… Crot… atrox   Baird…
@@ -165,10 +165,10 @@ reptiledbr_partial(species_names)
 #> # ℹ 2 more variables: fuzzy_match <lgl>, message <chr>
 
 # Flexible search with additional options
-search_reptiledbr(species_names, use_fuzzy = TRUE)
+reptiledbr::search_reptiledbr(species_names, use_fuzzy = TRUE)
 #> # A tibble: 4 × 12
 #>      id input_name found species_match order family genus epithet author message
-#>   <int> <chr>      <lgl> <chr>         <chr> <chr>  <chr> <chr>   <chr>  <chr>  
+#>   <int> <chr>      <lgl> <chr>         <fct> <fct>  <fct> <fct>   <chr>  <chr>  
 #> 1     1 Lachesis … TRUE  Lachesis muta Serp… Viper… Lach… muta    Linna… No sub…
 #> 2     2 Python bi… TRUE  Python bivit… Serp… Pytho… Pyth… bivitt… Kuhl … Specie…
 #> 3     3 Crotalus … TRUE  Crotalus atr… Serp… Viper… Crot… atrox   Baird… No sub…
@@ -176,8 +176,8 @@ search_reptiledbr(species_names, use_fuzzy = TRUE)
 #> # ℹ 2 more variables: match_type <chr>, fuzzy_match <lgl>
 
 # List subspecies for specific species
-search_reptiledbr(c("Anolis barahonae")) |> 
-  list_subspecies_reptiledbr()
+reptiledbr::search_reptiledbr(c("Anolis barahonae")) |> 
+  reptiledbr::list_subspecies_reptiledbr()
 #> # A tibble: 4 × 3
 #>   species          subspecies_name               author                
 #>   <chr>            <chr>                         <chr>                 

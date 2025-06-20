@@ -191,7 +191,7 @@ Query data directly from The Reptile Database server:
 ```{r}
 library(reptiledbr)
 # Get detailed information for a specific species
-reptiledb <- get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
+reptiledb <- reptiledbr::get_reptiledb_data("Anolis carolinensis", quiet = FALSE)
 # Format the results in a user-friendly way
 all_attributes <- reptiledb |> 
   reptiledbr::format_all_attributes()
@@ -216,17 +216,17 @@ species_names <- c(
 )
 
 # Exact search (strict matching)
-reptiledbr_exact(species_names)
+reptiledbr::reptiledbr_exact(species_names)
 
 # Partial/fuzzy search (finds matches despite typos)
-reptiledbr_partial(species_names)
+reptiledbr::reptiledbr_partial(species_names)
 
 # Flexible search with additional options
-search_reptiledbr(species_names, use_fuzzy = TRUE)
+reptiledbr::search_reptiledbr(species_names, use_fuzzy = TRUE)
 
 # List subspecies for specific species
-search_reptiledbr(c("Anolis barahonae")) |> 
-  list_subspecies_reptiledbr()
+reptiledbr::search_reptiledbr(c("Anolis barahonae")) |> 
+  reptiledbr::list_subspecies_reptiledbr()
 ```
 
 ### When to use each approach
