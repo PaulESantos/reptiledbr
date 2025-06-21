@@ -31,7 +31,8 @@ reptile species names in the database. It first attempts exact matches and then
 uses fuzzy matching for any species names that weren't found exactly.
 }
 \examples{
-
+\dontrun{
+# These examples require the 'reptiledb.data' package to be installed.
 search_reptiledbr(c("Ablepharus alaicus", "Anolis limom"))
-
+}
 }

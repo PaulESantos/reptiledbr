@@ -22,13 +22,14 @@ It identifies species that have subspecies and returns a tibble with the species
 subspecies name, and author information.
 }
 \examples{
-
+\dontrun{
+# These examples require the 'reptiledb.data' package to be installed.
 subspecies_names <- c("Lachesis muta",
- "Anilius scytale",
- "Anolis bahorucoensis")
+  "Anilius scytale",
+  "Anolis bahorucoensis")
 
 search_reptiledbr(subspecies_names, use_fuzzy = FALSE) |>
   list_subspecies_reptiledbr()
-
+}
 
 }

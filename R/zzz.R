@@ -35,9 +35,14 @@ utils::globalVariables(c(
   if (!requireNamespace("reptiledb.data", quietly = TRUE)) {
     packageStartupMessage(
       paste0(
-        "\nNOTE: Some functions require the 'reptiledb.data' package.\n",
-        "Install it with: pak::pak('PaulESantos/reptiledb.data')\n",
-        "Functions affected: search_reptiledbr(), list_subspecies_reptiledbr()"
+        "\nNOTE: The 'reptiledb.data' package is **recommended** for full functionality.\n",
+        "It provides the necessary data for the following functions:\n",
+        "  - `reptiledbr_exact()`\n",
+        "  - `reptiledbr_partial()`\n",
+        "  - `search_reptiledbr()`\n",
+        "  - `list_subspecies_reptiledbr()`\n\n",
+        "To install 'reptiledb.data', please use: pak::pak('PaulESantos/reptiledb.data')\n",
+        "Alternatively, if you prefer not to use pak: remotes::install_github('PaulESantos/reptiledb.data')"
       )
     )
   }
@@ -54,8 +59,9 @@ utils::globalVariables(c(
 check_data_required <- function() {
   if (!requireNamespace("reptiledb.data", quietly = TRUE)) {
     stop(
-      "This function requires the 'reptiledb.data' package.\n",
-      "Install it with: pak::pak('PaulESantos/reptiledb.data')",
+      "This function requires the 'reptiledb.data' package to be installed.\n",
+      "Please install it using: pak::pak('PaulESantos/reptiledb.data')\n",
+      "Alternatively: remotes::install_github('PaulESantos/reptiledb.data')",
       call. = FALSE
     )
   }

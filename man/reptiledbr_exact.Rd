@@ -25,7 +25,9 @@ This function searches for exact matches of scientific species names and indicat
 whether each matched species has associated subspecies in the dataset.
 }
 \examples{
-
+\dontrun{
+# These examples require the 'reptiledb.data' package to be installed.
+# You can install it from its source if not on CRAN.
 reptiledbr_exact(c("Ablepharus alaicus", "Anolis limon"))
-
+}
 }

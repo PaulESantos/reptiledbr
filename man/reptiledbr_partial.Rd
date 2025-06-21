@@ -26,7 +26,8 @@ This function performs approximate (fuzzy) matching of species names from a give
 against the species names in the reptile database, and indicates whether each matched species has subspecies.
 }
 \examples{
-
+\dontrun{
+# These examples require the 'reptiledb.data' package to be installed.
 reptiledbr_partial(c("Ablepharus alaicuss", "Anolis limom"))
-
+}
 }

@@ -12,6 +12,8 @@ status](https://www.r-pkg.org/badges/version/reptiledbr)](https://CRAN.R-project
 [![R-CMD-check](https://github.com/PaulESantos/reptiledbr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/reptiledbr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/PaulESantos/reptiledbr/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/reptiledbr)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/reptiledbr?color=green)](https://cran.r-project.org/package=reptiledbr)
+[![](http://cranlogs.r-pkg.org/badges/last-week/reptiledbr?color=green)](https://cran.r-project.org/package=reptiledbr)
 <!-- badges: end -->
 
 ## Overview
