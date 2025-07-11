@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/reptiledbr)](https://CRAN.R-project.org/package=reptiledbr)
 [![R-CMD-check](https://github.com/PaulESantos/reptiledbr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/reptiledbr/actions/workflows/R-CMD-check.yaml)
@@ -81,7 +81,6 @@ Query data directly from The Reptile Database server:
 
 ``` r
 library(reptiledbr)
-#> Cargando paquete requerido: fuzzyjoin
 #> Welcome to reptiledbr (0.0.1)
 #> This package provides tools to access and query data from the Reptile Database:
 #>   https://reptile-database.reptarium.cz/
