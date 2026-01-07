@@ -38,7 +38,7 @@ reptiledbr_exact <- function(species_names) {
   species_names <- as.character(species_names)
 
   # Filtrar las especies que coinciden exactamente con los nombres proporcionados
-  df <- reptiledb.data::reptiledb_012025 |>
+  df <- reptiledb.data::reptiledb_092025 |>
     dplyr::select(order:species_name_year) |>
     dplyr::filter(species %in% species_names) |>
     dplyr::distinct()
@@ -52,7 +52,7 @@ reptiledbr_exact <- function(species_names) {
   }
 
   # Verificar si hay subspecies por especie
-  check_subspecie <- reptiledb.data::reptiledb_012025 |>
+  check_subspecie <- reptiledb.data::reptiledb_092025 |>
     dplyr::filter(species %in% species_names) |>
     dplyr::distinct() |>
     dplyr::group_by(species) |>
@@ -142,7 +142,7 @@ reptiledbr_partial <- function(species_names,
       dplyr::mutate(id = dplyr::row_number()) |>
       dplyr::arrange(id)
 
-    base_tbl <- reptiledb.data::reptiledb_012025 |>
+    base_tbl <- reptiledb.data::reptiledb_092025 |>
       dplyr::select(order:species_name_year) |>
       dplyr::distinct()
 
@@ -169,7 +169,7 @@ reptiledbr_partial <- function(species_names,
     # Verificar presencia de subespecies
     check_subspecies <- fuzzyjoin::stringdist_inner_join(
       query_tbl,
-      reptiledb.data::reptiledb_012025,
+      reptiledb.data::reptiledb_092025,
       by = c("input_name" = "species"),
       method = "lv",        # Optimal string alignment
       max_dist = max_dist,
@@ -599,7 +599,7 @@ list_subspecies_reptiledbr <- function(df) {
         }
 
         # Extract subspecies information from the database
-        result <- reptiledb.data::reptiledb_012025 |>
+        result <- reptiledb.data::reptiledb_092025 |>
           dplyr::filter(species %in% has_subspecies$species_match) |>
           dplyr::mutate(
             subspecies_name = paste0(

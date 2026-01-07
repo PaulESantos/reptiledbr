@@ -31,12 +31,27 @@ and biodiversity data users.
 
 ## Installation
 
-You can install the development version of `reptiledbr` from
-[GitHub](https://github.com/) with:
+### From CRAN
+
+The stable release of **reptiledbr** can be installed from CRAN with:
 
 ``` r
-# install.packages("pak")
+install.packages("reptiledbr")
+```
+
+Development version from GitHub You can install the development version
+from GitHub using pak:
+
+``` r
+# install.packages("pak")  # run once if pak is not installed
 pak::pak("PaulESantos/reptiledbr")
+```
+
+Alternatively, using remotes:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("PaulESantos/reptiledbr")
 ```
 
 ## Features
@@ -71,7 +86,7 @@ around the world. It focuses on taxonomic data including:
 > Database. It provides an independent R interface to facilitate access
 > to public data.
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /><img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" alt="" width="100%" /><img src="man/figures/README-unnamed-chunk-3-2.png" alt="" width="100%" />
 
 ## Usage
 

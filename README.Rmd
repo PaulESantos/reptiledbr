@@ -36,12 +36,28 @@ The goal of reptiledbr is to facilitate access to reptile taxonomy, nomenclature
 
 ## Installation
 
-You can install the development version of `reptiledbr` from [GitHub](https://github.com/) with:
+### From CRAN
 
-``` r
-# install.packages("pak")
+The stable release of **reptiledbr** can be installed from CRAN with:
+
+```r
+install.packages("reptiledbr")
+```
+
+Development version from GitHub
+You can install the development version from GitHub using pak:
+
+```r 
+# install.packages("pak")  # run once if pak is not installed
 pak::pak("PaulESantos/reptiledbr")
 ```
+Alternatively, using remotes:
+
+```r
+# install.packages("remotes")
+remotes::install_github("PaulESantos/reptiledbr")
+```
+
 
 ## Features
 
@@ -94,7 +110,8 @@ species_data <- tribble(
   "Dec 2022", 201, 7310, 4038, 363, 27, 1, 11940,
   "Oct 2023", 202, 7396, 4073, 361, 27, 1, 12060,
   "Aug 2024", 203, 7724, 4145, 366, 27, 1, 12263,
-  "Jan 2025", 203, 7814, 4177, 367, 27, 1, 12386
+  "Jan 2025", 203, 7814, 4177, 367, 27, 1, 12386,
+  "Sep 2025", 203, 7905, 4203, 366, 27, 1, 12502
 )
 
 # Transform data to long format for visualization
