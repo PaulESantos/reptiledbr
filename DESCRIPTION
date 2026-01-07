@@ -1,6 +1,6 @@
 Package: reptiledbr
 Title: Interface to the Reptile Database for Querying and Retrieving Taxonomic Data
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person(
         given = "Paul Efren",
