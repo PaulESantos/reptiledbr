@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">reptiledbr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/reptiledbr" class="external-link">reptiledbr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Welcome to reptiledbr (0.0.1)</span></span>
+<span><span class="co">#&gt; Welcome to reptiledbr (0.0.2)</span></span>
 <span><span class="co">#&gt; This package provides tools to access and query data from the Reptile Database:</span></span>
 <span><span class="co">#&gt;   https://reptile-database.reptarium.cz/</span></span>
 <span><span class="co">#&gt; Type ?reptiledbr to get started or visit the documentation for examples and guidance.</span></span></code></pre></div>
@@ -158,7 +158,7 @@ extract and format specific types of information:</p>
 </h4>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/format_synonyms.html">format_synonyms</a></span><span class="op">(</span><span class="va">reptile_data</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 78 × 4</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 79 × 4</span></span></span>
 <span><span class="co">#&gt;    input_name    genus    species synonym                                       </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lachesis muta Lachesis muta    Crotalus mutus LINNAEUS 1766: 373             </span></span>
@@ -171,7 +171,7 @@ extract and format specific types of information:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lachesis muta Lachesis muta    Trigonocephalus ammodytes — OPPEL 1811: 390   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lachesis muta Lachesis muta    Cophias crotalinus — MERREM 1820: 144         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lachesis muta Lachesis muta    Trigonocephalus crotalinus — SCHINZ 1822: 144 </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 68 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 69 more rows</span></span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="distribution-information">Distribution information<a class="anchor" aria-label="anchor" href="#distribution-information"></a>
@@ -287,14 +287,15 @@ extract and format specific types of information:</p>
 </h4>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/format_diagnosis.html">format_diagnosis</a></span><span class="op">(</span><span class="va">reptile_data</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 4</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 4</span></span></span>
 <span><span class="co">#&gt;   input_name        genus    species    diagnosis_detail                        </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Lachesis muta     Lachesis muta       Diagnosis: Distinguished from L. stenop…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Lachesis muta     Lachesis muta       Additional details (3041 characters) ar…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Python bivittatus Python   bivittatus Diagnosis: Large serpents; labials sepa…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Python bivittatus Python   bivittatus Additional details (2449 characters) ar…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Crotalus atrox    Crotalus atrox      Additional details, e.g. a detailed des…</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Lachesis muta     Lachesis muta       Diagnosis (genus): The only oviparous N…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Lachesis muta     Lachesis muta       The diagnostic external morphological f…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Lachesis muta     Lachesis muta       Unfortunately we had to temporarily rem…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Python bivittatus Python   bivittatus Diagnosis: Large serpents; labials sepa…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Python bivittatus Python   bivittatus Unfortunately we had to temporarily rem…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Crotalus atrox    Crotalus atrox      Unfortunately we had to temporarily rem…</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="comments">Comments<a class="anchor" aria-label="anchor" href="#comments"></a>
@@ -325,18 +326,20 @@ extract and format specific types of information:</p>
 </h4>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/format_etymology.html">format_etymology</a></span><span class="op">(</span><span class="va">reptile_data</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 4</span></span></span>
-<span><span class="co">#&gt;   input_name    genus    species etymology_detail                               </span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Lachesis muta Lachesis muta    The specific name muta is from the Latin mutus…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Lachesis muta Lachesis muta    The genus was apparently named after Lachesis,…</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 4</span></span></span>
+<span><span class="co">#&gt;   input_name        genus    species    etymology_detail                        </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Lachesis muta     Lachesis muta       <span style="color: #949494;">"</span>The specific name muta is from the Lat…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Lachesis muta     Lachesis muta       <span style="color: #949494;">"</span>The genus was apparently named after L…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Python bivittatus Python   bivittatus <span style="color: #949494;">"</span>The species epithet, bivittatus, comes…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Crotalus atrox    Crotalus atrox      <span style="color: #949494;">"</span>The specific name, \"atrox,\" is a Gre…</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h4>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/format_references.html">format_references</a></span><span class="op">(</span><span class="va">reptile_data</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 418 × 4</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 421 × 4</span></span></span>
 <span><span class="co">#&gt;    input_name    genus    species reference                                     </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lachesis muta Lachesis muta    Alves, Fátima Q.; AntÃ´nio J. S. ArgÃ´lo, and…</span></span>
@@ -349,7 +352,7 @@ extract and format specific types of information:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lachesis muta Lachesis muta    Avila-Pires, Teresa C.S.; Kleiton R. Alves-Si…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lachesis muta Lachesis muta    Barbour, Thomas 1930. The bushmaster in the C…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lachesis muta Lachesis muta    Barrio-Amorós, Cesar L.; Greivin Corrales, Sy…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 408 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 411 more rows</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -437,7 +440,7 @@ complete function documentation, please refer to the package’s <a href="https:
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
